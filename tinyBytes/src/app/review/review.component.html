@@ -1,55 +1,35 @@
-<!-- Rotating card -->
-<div class="card-wrapper">
-  <div id="card-1" class="card card-rotating text-center">
+<div uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky">
+  <nav id="navContainer" class="uk-navbar-container uk-margin " uk-navbar>
+    <div class="container-fluid uk-background-default" >
 
-    <!-- Front Side -->
-    <div class="face front">
-
-      <!-- Image-->
-      <div class="card-up">
-        <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/photo7.webp" alt="Image with a photo of clouds.">
+      <div id="navbar-left" class="nav-overlay uk-navbar-left">
+        <div class="card-deck w-100">
+          <div class="card-header">
+            Reviews
+          </div>
+          <div id="reviewCard" class="row d-flex justify-content-around .h-100">
+              <div id="cardContainer"*ngFor="let review of reviews.data" class="card" style="border: none;"> 
+                  <h3>{{review.userName}}</h3> 
+                  <h3>{{review.review}}</h3> 
+              </div>
+          </div>
+        </div>
       </div>
 
-      <!-- Avatar -->
-      <div class="avatar mx-auto white"><img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(20).webp" class="rounded-circle"
-          alt="Sample avatar image.">
+      <div class="nav-overlay uk-navbar-right">
+        <a class="uk-navbar-toggle" style="margin-right:50px;" uk-toggle="target: .nav-overlay; animation: uk-animation-fade">Write a Review</a>
       </div>
 
-      <!-- Content -->
-      <div class="card-body">
-        <h4 class="font-weight-bold mb-3">Marie Johnson</h4>
-        <p class="font-weight-bold blue-text">Web developer</p>
-        <!-- Triggering button -->
-        <a class="rotate-btn" data-card="card-1"><i class="fas fa-redo-alt"></i> Click here to rotate</a>
+      <div class="nav-overlay uk-navbar-left uk-flex-1" hidden>
+        <div class="uk-navbar-item uk-width-expand">
+          <form class="uk-search uk-search-large uk-width-1-1" (ngSubmit)="startSearch();" >
+              <input id="form-control me-2" class="uk-search-input" type="search" placeholder="Username ..." autofocus>
+              <input id="form-control me-2" class="uk-search-input" type="search" placeholder="Review ..." autofocus>
+          </form>
+        </div>
+        <a class="uk-navbar-toggle" uk-check="ratio:2" uk-toggle="target: .nav-overlay; animation: uk-animation-fade" href="#"></a>
       </div>
+
     </div>
-    <!-- Front Side -->
-
-    <!-- Back Side -->
-    <div class="face back">
-      <div class="card-body">
-
-        <!-- Content -->
-        <h4 class="font-weight-bold mb-0">About me</h4>
-        <hr>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat tenetur odio suscipit non commodi vel
-          eius veniam maxime?
-          <hr>
-          <!-- Social Icons -->
-          <ul class="list-inline py-2">
-            <li class="list-inline-item"><a class="p-2 fa-lg fb-ic"><i class="fab fa-facebook-f"></i></a></li>
-            <li class="list-inline-item"><a class="p-2 fa-lg tw-ic"><i class="fab fa-twitter"></i></a></li>
-            <li class="list-inline-item"><a class="p-2 fa-lg gplus-ic"><i class="fab fa-google-plus-g"></i></a></li>
-            <li class="list-inline-item"><a class="p-2 fa-lg li-ic"><i class="fab fa-linkedin-in"></i></a></li>
-          </ul>
-          <!-- Triggering button -->
-          <a class="rotate-btn" data-card="card-1"><i class="fas fa-undo"></i> Click here to rotate back</a>
-
-      </div>
-    </div>
-    <!-- Back Side -->
-
+  </nav> 
   </div>
-</div>
-<!-- Rotating card -->

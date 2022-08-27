@@ -1,3 +1,8 @@
-h1 {
-    color: blue;
-  }
+.uk-search-input::placeholder{
+  color: #f4642d;
+  opacity: .5;
+}
+.cardContainer {
+  border-width: medium !important;
+  border-bottom-color: #f4642d !important;
+}

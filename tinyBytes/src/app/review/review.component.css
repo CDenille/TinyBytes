@@ -6,3 +6,7 @@
   border-width: medium !important;
   border-bottom-color: #f4642d !important;
 }
+.container-fluid{
+  display: flex;
+  justify-content: space-between;
+}

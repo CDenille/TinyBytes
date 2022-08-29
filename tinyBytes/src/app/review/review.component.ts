@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ReviewService } from '../service/review.service';
+import { Router } from '@angular/router';
 import { IReview } from '../interface/review';
 
 @Component({
@@ -10,6 +11,7 @@ import { IReview } from '../interface/review';
 export class ReviewComponent  {
   constructor(
     private reviewService: ReviewService,
+    private router: Router
   ) {}
 
   reviews!: IReview;

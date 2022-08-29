@@ -1,4 +1,4 @@
-const {Sequelize} = require('sequelize');
+const { Sequelize } = require('sequelize');
 const path = require('path');
 
 const db = new Sequelize({
@@ -18,4 +18,4 @@ const connection = async () => {
 
 connection();
 
-module.exports = db;
+module.exports =  db;

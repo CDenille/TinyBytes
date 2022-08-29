@@ -62,7 +62,7 @@ const SALT_ROUNDS = 2;
 // );
 // module.exports = User;
 
-const User =db.define("user",{
+const User = db.define("user", {
   firstName: {
     type: DataTypes.STRING,
     allowNull: false,

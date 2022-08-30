@@ -24,16 +24,15 @@
 
       <div class="nav-overlay uk-navbar-left uk-flex-1" hidden>
         <div class="uk-navbar-item uk-width-expand">
-          <form class="uk-search uk-search-large uk-width-1-1" >
+          <form class="uk-search uk-search-large uk-width-1-1" (ngSubmit)="onSubmit();">
             <input id="userNameInput" class="uk-search-input" type="search" placeholder="Username ..." autofocus>
             <input id="reviewInput" class="uk-search-input" type="search" placeholder="Review ..." autofocus>
         </form>
         </div>
-        <div class="uk-navbar-toggle" uk-toggle="target: .nav-overlay; animation: uk-animation-fade" >
-          <button (click)="onSubmit()">Submit Review</button>
+        <div>
+          <a class="uk-navbar-toggle" uk-close="ratio:2" uk-toggle="target: .nav-overlay; animation: uk-animation-fade" href="#"></a>
         </div>
       </div>
-
     </div>
   </nav> 
   </div>

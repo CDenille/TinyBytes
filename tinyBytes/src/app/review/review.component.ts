@@ -1,14 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ReviewService } from '../service/review.service';
 import { Router } from '@angular/router';
 import { IReview } from '../interface/review';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'review',
   templateUrl: './review.component.html',
   styleUrls: ['./review.component.css'],
 })
-export class ReviewComponent  {
+export class ReviewComponent implements OnInit, OnDestroy  {
   constructor(
     private reviewService: ReviewService,
     private router: Router
@@ -16,12 +17,14 @@ export class ReviewComponent  {
   
 
   reviews!: IReview;
+  reviewSub!: Subscription;
+  sendReviewSub!: Subscription;
 
   ngOnInit(): void {
     //Get User ID trhough local storage (must be number or convert)
     const recipeId = localStorage.getItem('recipeId');
     //Subscriptions
-    this.reviewService.getReviews(recipeId).subscribe({
+   this.reviewSub= this.reviewService.getReviews(recipeId).subscribe({
       next: reviews => {
         this.reviews = reviews,
         console.log("RecipeId: " , recipeId)
@@ -30,8 +33,14 @@ export class ReviewComponent  {
     });
   }
 
-  onSubmit() {
-    this.reviewService.sendReview()
+  Review() {
+    this.sendReviewSub=this.reviewService.sendReview()
       .subscribe(data => { console.log("Here is the new reivew: ", data) });
+      window.location.reload()
+  }
+
+  ngOnDestroy() {
+    this.reviewSub.unsubscribe();
+    this.sendReviewSub.unsubscribe();
   }
 }

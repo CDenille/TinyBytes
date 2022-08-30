@@ -24,9 +24,21 @@
 
       <div class="nav-overlay uk-navbar-left uk-flex-1" hidden>
         <div class="uk-navbar-item uk-width-expand">
-          <form class="uk-search uk-search-small uk-width-1-1" >
-              <input id="form-control me-2" class="uk-search-input" type="search" placeholder="Username ..." autofocus>
-              <input id="form-control me-2" class="uk-search-input" type="search" placeholder="Review ..." autofocus>
+          <form [formGroup]="reviewForm" class="uk-search uk-search-small uk-width-1-1" >
+            <div class="user-name">
+              <label>User Name</label>
+              <input type="text" name="user" min=2 pattern="[a-zA-Z]+" required formControlName="userName"/>
+              <div class="alert alert-danger" role="alert" *ngIf="reviewForm.controls['userName'].errors && reviewForm.controls['userName'].touched">              
+                User Name can only contain letters
+              </div>
+            </div>
+            <div class="review-desc">
+              <label>Your Review</label>
+              <input type="text" name="review" min=2 pattern="[a-zA-Z]+" required formControlName="review"/>
+              <div class="alert alert-danger" role="alert" *ngIf="reviewForm.controls['review'].errors && reviewForm.controls['review'].touched">              
+                Review can only contain letters
+              </div>
+            </div>
           </form>
         </div>
         <a class="uk-navbar-toggle" uk-icon="icon: check; ratio: 2" uk-toggle="target: .nav-overlay; animation: uk-animation-fade" href="#"></a>

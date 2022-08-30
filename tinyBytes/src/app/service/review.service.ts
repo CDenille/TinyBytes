@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { IHttpError } from '../interface/error';
+import { Review } from '../review';
 
 @Injectable({
   providedIn: 'root',
@@ -15,6 +16,11 @@ export class ReviewService {
     return this.http
       .get<any>(`https://tinybytes.herokuapp.com/recipe/${recipeId}/reviews`)
       .pipe(catchError(this.HttpErrorHandler))
+  }
+
+  sendReview(review:Review) {
+    const body = JSON.stringify(review)
+    return this.http.post<any>(`https://tinybytes.herokuapp.com/recipe/reviews`, body)
   }
 
   private HttpErrorHandler(err: HttpErrorResponse): Observable<IHttpError> {

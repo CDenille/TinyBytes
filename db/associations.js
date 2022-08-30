@@ -6,21 +6,11 @@ const db = require("./db");
 
 
 User.belongsToMany(Recipe, {through: "Favorites"});
-Recipe.belongsToMany(User, {
-    through: "Favorites"});
-
-Review.belongsTo(Recipe, {
-    sourceKey: 'recipeId'
-});
+Recipe.belongsToMany(User, {through: "Favorites"});
+    
 Recipe.hasMany(Review, {
+    foreignKey: 'recipe_id',
     targetKey:'id'
 });
 
-// Review.belongsToMany(Recipe, {
-//     through: 'RecipeReview'
-// });
-// Recipe.belongsToMany(Review, {
-//     through: 'RecipeReview',
-//     sourceKey:'recipeId'
-// });
 module.exports = {db, User, Recipe, Review};

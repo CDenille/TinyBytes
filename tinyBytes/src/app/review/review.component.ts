@@ -39,8 +39,6 @@ export class ReviewComponent  {
   }
 
   onSubmit() {
-    console.log('Form value',this.reviewForm)
-    this.reviewService.sendReview(this.reviewForm.value)
-  .subscribe(data =>{console.log(data)});
+    this.reviewService.sendReview();
   }
 }

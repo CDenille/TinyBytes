@@ -10,7 +10,7 @@ Recipe.belongsToMany(User, {through: "Favorites"});
     
 Recipe.hasMany(Review, {
     foreignKey: 'recipe_id',
-    targetKey:'id'
+    targetKey: 'id'
 });
 
 module.exports = {db, User, Recipe, Review};

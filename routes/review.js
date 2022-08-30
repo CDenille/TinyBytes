@@ -40,7 +40,7 @@ const findAllReviews = async (req, res, next)=> {
     const recipeId = req.params.recipeId;
     const query = `SELECT Reviews.userName, Reviews.review
                     FROM Reviews
-                    JOIN Recipes on Recipes.recipeId = Reviews.RecipeRecipeId
+                    JOIN Recipes on Recipes.recipeId = Reviews.recipe_id
                     WHERE Reviews.RecipeRecipeId=(?);`
     
     db.all(query, [recipeId], (error, rows) => {

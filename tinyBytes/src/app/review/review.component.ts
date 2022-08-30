@@ -16,7 +16,6 @@ export class ReviewComponent  {
   
 
   reviews!: IReview;
-  newReview!:any;
 
   ngOnInit(): void {
     //Get User ID trhough local storage (must be number or convert)
@@ -32,11 +31,7 @@ export class ReviewComponent  {
   }
 
   onSubmit() {
-    this.reviewService.sendReview().subscribe({
-      next: newReview => {
-        this.newReview = newReview
-        console.log("Here is the new reivew: " , this.newReview)
-      }
-    });
+    this.reviewService.sendReview()
+      .subscribe(data => { console.log("Here is the new reivew: ", data) });
   }
 }

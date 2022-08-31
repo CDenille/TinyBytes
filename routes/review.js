@@ -53,18 +53,14 @@ const findAllReviews = async (req, res, next)=> {
 router.get('/:recipeId/reviews', findAllReviews, sendResponse)
 
 router.post('/reviews', async (req, res) => {
-    // try {
-    //     const newReview = await Review.create(req.body);
-    //     console.log('New Review Post', newReview)
-    //   res.status(200).send(`Profile information was successfully updated for ${req.body.recipe_id} ${req.body.userName}.`);
+    try {
+        let newReview = req.body
+        await Review.create(req.body);
+        console.log('New Review Post', newReview)
+      res.status(200).send(`Profile information was successfully updated for ${req.body.recipe_id} ${req.body.userName}.`);
        
-    // } catch (error) {
-    //   res.status(500).send(`Could not add the review. This is due to the following server error: ${error}`);
-    // }
-    let newReview = req.body
-    // await Review.create(req.body);
-    await Review.addReview(newReview)
-    console.log('New Review Post', { newReview })
-    res.json(newReview);
+    } catch (error) {
+      res.status(500).send(`Could not add the review. This is due to the following server error: ${error}`);
+    }
   });
 module.exports = router

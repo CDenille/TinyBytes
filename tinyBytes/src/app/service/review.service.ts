@@ -4,6 +4,7 @@ import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { IHttpError } from '../interface/error';
 import { Review } from '../review';
+import { ReviewInter } from '../interface/review';
 import { LocalStorageRefService } from '../service/local-storage-ref.service'
 
 @Injectable({
@@ -24,7 +25,7 @@ export class ReviewService {
       .pipe(catchError(this.HttpErrorHandler))
   }
 
-  sendReview() {
+  sendReview(): Observable<ReviewInter> {
     this.recipe_id = Number(localStorage.getItem('recipeId'))
     console.log("Id Type", typeof this.recipe_id)
     // this.userName = ((document.getElementById('userNameInput') as HTMLInputElement).value);
@@ -38,8 +39,8 @@ export class ReviewService {
       review: this.review
     }
     console.log("THe json", newReview)
-    return this.http.post<any>(`https://tinybytes.herokuapp.com/recipe/reviews`,  newReview )
-      .pipe(catchError(this.HttpErrorHandler))
+    return this.http.post<ReviewInter>(`https://tinybytes.herokuapp.com/recipe/reviews`, { newReview, responseType: 'text' })
+      
   }
 
   private HttpErrorHandler(err: HttpErrorResponse): Observable<IHttpError> {

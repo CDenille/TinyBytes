@@ -1,10 +1,11 @@
 export interface IReview{
   message: string
   status: number
-  data: Review[]
+  data: ReviewInter[]
 }
   
-export interface Review {
+export interface ReviewInter {
+  recipe_id: number
   userName: string
   review:string
 }

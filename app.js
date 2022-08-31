@@ -4,7 +4,7 @@ const path = require("path");
 const request = require("request");
 // const PORT = 8080;
 const cors = require("cors");
-const {User, Recipe} = require("./db/associations");
+const {User, Recipe, Review} = require("./db/associations");
 const { use } = require("bcrypt/promises");
 
 //./tinyBytes/src/app/service/local-storage.service
@@ -268,9 +268,14 @@ app.get("/HTMLNutritionFacts/:recipeId", async (req, res) => {
   ).pipe(res);
     
 });
-app.get("/allDatabaseRecipes", async (req, res) => {
+app.get("/allRecipes", async (req, res) => {
   let allRecipes = await Recipe.findAll()
   res.json(allRecipes)
+})
+
+app.get("/allReviews", async (req, res) => {
+  let allReviews = await Review.findAll()
+  res.json(allReviews)
 })
   
 app.listen(process.env.PORT || 8080);

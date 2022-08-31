@@ -266,6 +266,10 @@ app.get("/HTMLNutritionFacts/:recipeId", async (req, res) => {
       }
     }
   ).pipe(res);
+
+  app.get("/allDatabaseRecipes", async (req, res) => {
+    let allRecipes = await Recipe.findAll()
+    res.json(allRecpies)
 });
 
 app.listen(process.env.PORT || 8080);

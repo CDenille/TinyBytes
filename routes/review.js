@@ -62,7 +62,9 @@ router.post('/reviews', async (req, res) => {
     //   res.status(500).send(`Could not add the review. This is due to the following server error: ${error}`);
     // }
     let newReview = req.body
-    await Review.create(req.body);
+    // await Review.create(req.body);
+    await Review.addReview(newReview)
     console.log('New Review Post', { newReview })
+    res.json(newReview);
   });
 module.exports = router

@@ -39,7 +39,7 @@ export class ReviewService {
       review: this.review
     }
     console.log("THe json", newReview)
-    return this.http.post<ReviewInter>(`https://tinybytes.herokuapp.com/recipe/reviews`, { newReview, responseType: 'text' })
+    return this.http.post<ReviewInter>(`https://tinybytes.herokuapp.com/recipe/reviews`, newReview)
       
   }
 

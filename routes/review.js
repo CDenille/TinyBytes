@@ -62,5 +62,5 @@ router.post('/reviews', async (req, res) => {
     } catch (error) {
       res.status(500).send(`Could not add the review. This is due to the following server error: ${error}`);
     }
-  });
+});
 module.exports = router

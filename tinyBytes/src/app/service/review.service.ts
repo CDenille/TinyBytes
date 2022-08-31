@@ -31,7 +31,7 @@ export class ReviewService {
     // this.userName = ((document.getElementById('userNameInput') as HTMLInputElement).value);
     // this.review = ((document.getElementById('reviewInput') as HTMLInputElement).value);
     this.userName = 'Tommy'
-    this.review = 'Tommys review'
+    this.review = 'Tommys other review'
 
     const newReview = {
       recipe_id: this.recipe_id,
@@ -39,7 +39,7 @@ export class ReviewService {
       review: this.review
     }
     console.log("THe json", newReview)
-    return this.http.post<any>(`https://tinybytes.herokuapp.com/recipe/reviews`, { newReview, responseType: 'text' })
+    return this.http.post<any>(`https://tinybytes.herokuapp.com/recipe/reviews`, newReview)
       
   }
 

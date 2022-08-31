@@ -57,7 +57,7 @@ router.post('/reviews', async (req, res) => {
         let newReview = req.body
         await Review.create(req.body);
         console.log('New Review Post', newReview)
-      res.status(200).send(`Profile information was successfully updated for ${req.body.recipe_id} ${req.body.userName}.`);
+      res.status(200).send({newReview});
        
     } catch (error) {
       res.status(500).send(`Could not add the review. This is due to the following server error: ${error}`);

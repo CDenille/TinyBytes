@@ -86,6 +86,7 @@ export class RecipeComponent implements OnInit, OnDestroy, AfterViewInit {
         next: (details: IRecipeDetails | IHttpError) => {
           console.log('Details Data: ', details);
           this.details = <IRecipeDetails>details;
+          localStorage.setItem('recipeName', this.details.title);
         },
         // error: (err: IHttpError) => console.error(err.detailedMessage),
       });
@@ -127,6 +128,8 @@ export class RecipeComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   ngOnDestroy(): void {
+    localStorage.removeItem('recipeName')
+    localStorage.removeItem('recipeId');
     this.detailsSub.unsubscribe();
     this.instructionsSub.unsubscribe();
     this.nutritionSub.unsubscribe();

@@ -55,7 +55,8 @@ router.get('/:recipeId/reviews', findAllReviews, sendResponse)
 router.post('/reviews', async (req, res) => {
     try {
         let newReview = req.body
-        await Review.create(req.body);
+        await Recipe.findOrCreate({where:{name: req.body.name, recipeId: req.body.recipe_id}})
+        await Review.create({ where: { recipe_id:req.body.recipe_id, userName:req.body.userName, review:req.body.review} });
         console.log('New Review Post', newReview)
       res.status(200).send({newReview});
        

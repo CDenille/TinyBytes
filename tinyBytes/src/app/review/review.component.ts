@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ReviewService } from '../service/review.service';
 import { Router } from '@angular/router';
-import { IReview } from '../interface/review';
+import { IReview, ReviewInter } from '../interface/review';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -17,6 +17,7 @@ export class ReviewComponent implements OnInit, OnDestroy  {
   
 
   reviews!: IReview;
+  newReview!: ReviewInter;
   reviewSub!: Subscription;
   sendReviewSub!: Subscription;
 
@@ -35,7 +36,12 @@ export class ReviewComponent implements OnInit, OnDestroy  {
 
   Review() {
     this.sendReviewSub=this.reviewService.sendReview()
-      .subscribe(data => { console.log("Here is the new reivew: ", data) });
+      .subscribe({
+        next: newReview => {
+          this.newReview = newReview,
+          console.log("Here is the new reivews: " , this.reviews)
+        },
+      })
   }
 
   ngOnDestroy() {

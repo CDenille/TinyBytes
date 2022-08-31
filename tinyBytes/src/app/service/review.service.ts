@@ -25,7 +25,7 @@ export class ReviewService {
       .pipe(catchError(this.HttpErrorHandler))
   }
 
-  sendReview(): Observable<ReviewInter> {
+  sendReview(): Observable<any>{
     this.recipe_id = Number(localStorage.getItem('recipeId'))
     console.log("Id Type", typeof this.recipe_id)
     // this.userName = ((document.getElementById('userNameInput') as HTMLInputElement).value);
@@ -39,7 +39,7 @@ export class ReviewService {
       review: this.review
     }
     console.log("THe json", newReview)
-    return this.http.post<ReviewInter>(`https://tinybytes.herokuapp.com/recipe/reviews`, { newReview, responseType: 'text' })
+    return this.http.post<any>(`https://tinybytes.herokuapp.com/recipe/reviews`, { newReview, responseType: 'text' })
       
   }
 

@@ -54,7 +54,8 @@ router.get('/:recipeId/reviews', findAllReviews, sendResponse)
 
 router.post('/reviews', async (req, res) => {
     try {
-      const newReview = await Review.create(req.body);
+        const newReview = await Review.create(req.body);
+        console.log('New Review Post', newReview)
       res.status(200).send(`Profile information was successfully updated for ${req.body.recipe_id} ${req.body.userName}.`);
        
     } catch (error) {

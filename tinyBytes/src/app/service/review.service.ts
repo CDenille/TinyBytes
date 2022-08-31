@@ -25,10 +25,12 @@ export class ReviewService {
   }
 
   sendReview() {
-    this.recipe_id = localStorage.getItem('recipeId')
-    this.userName = ((document.getElementById('userNameInput') as HTMLInputElement).value);
-    this.review = ((document.getElementById('reviewInput') as HTMLInputElement).value);
-    console.log("Review info", this.recipe_id, this.userName, this.review);
+    this.recipe_id = Number(localStorage.getItem('recipeId'))
+    console.log("Id Type", typeof this.recipe_id)
+    // this.userName = ((document.getElementById('userNameInput') as HTMLInputElement).value);
+    // this.review = ((document.getElementById('reviewInput') as HTMLInputElement).value);
+    this.userName = 'Tommy'
+    this.review = 'Tommys review'
 
     const newReview = {
       recipe_id: this.recipe_id,
@@ -36,7 +38,8 @@ export class ReviewService {
       review: this.review
     }
     console.log("THe json", newReview)
-    return this.http.post<any>(`https://tinybytes.herokuapp.com/recipe/reviews`, { newReview })
+    return this.http.post<any>(`https://tinybytes.herokuapp.com/recipe/reviews`,  newReview )
+      .pipe(catchError(this.HttpErrorHandler))
   }
 
   private HttpErrorHandler(err: HttpErrorResponse): Observable<IHttpError> {

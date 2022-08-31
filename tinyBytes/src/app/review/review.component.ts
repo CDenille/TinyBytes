@@ -36,7 +36,6 @@ export class ReviewComponent implements OnInit, OnDestroy  {
   Review() {
     this.sendReviewSub=this.reviewService.sendReview()
       .subscribe(data => { console.log("Here is the new reivew: ", data) });
-      window.location.reload()
   }
 
   ngOnDestroy() {

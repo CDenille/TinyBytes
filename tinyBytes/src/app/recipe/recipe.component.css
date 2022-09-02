@@ -14,6 +14,8 @@ header {
 
 .pageTitle {
   font-weight: bold;
+  color:#f4642d;
+  text-align: center;
 }
 
 .headerOptions {
@@ -86,7 +88,8 @@ header {
 
 .recipeDetailsContainer {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
   align-items: flex-start;
   margin-bottom: 40px;
 }
@@ -117,7 +120,19 @@ header {
 .instructionsContainer, .ingredientsContainer {
   width: 50%;
 }
+.nutritionContainer{
+  justify-content: flex-start;
+  width: 50%;
+  margin-left: 0px; 
+}
 
+#spoonacular-nutrition-label{
+  justify-content: left
+}
+
+.reviewListContainer{
+  width: 50%;
+}
 
 /* Responsive Design */
 

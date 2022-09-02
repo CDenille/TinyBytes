@@ -30,10 +30,8 @@ export class ReviewService {
     this.recipe_id = Number(localStorage.getItem('recipeId'))
     this.recipeName= localStorage.getItem('recipeName')
     console.log("Id Type", typeof this.recipe_id)
-    // this.userName = ((document.getElementById('userNameInput') as HTMLInputElement).value);
-    // this.review = ((document.getElementById('reviewInput') as HTMLInputElement).value);
-    this.userName = 'Tommy'
-    this.review = 'Tommys other review'
+    this.userName = ((document.getElementById('form-control me-2 userName') as HTMLInputElement).value);
+    this.review = ((document.getElementById('form-control me-2 review') as HTMLInputElement).value);
 
     const newReview = {
       recipe_id: this.recipe_id,

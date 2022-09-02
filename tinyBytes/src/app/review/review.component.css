@@ -2,11 +2,30 @@
   color: #f4642d;
   opacity: .5;
 }
-.cardContainer {
-  border-width: medium !important;
-  border-bottom-color: #f4642d !important;
+.container-fluid uk-background-default{
+  width: 100%;
 }
-.container-fluid{
+.cardTitle{
+  background-color: white;
+  outline-style: none;
+}
+h3{
+  font-weight: bold;
+}
+.cardContainer:hover{
+  -ms-transform: scale(1.1); /* IE 9 */
+  -webkit-transform: scale(1.1); /* Safari 3-8 */
+  transform: scale(1.1);
+  transition: 1s ease;
+  color:#f4642d;
+}
+.uk-navbar-toggle{
+  color:#f4642d;
+}
+#reviewCard{
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+}
+.nav-overlay-review uk-navbar-right{
+  justify-content: end;
 }

@@ -8,9 +8,11 @@
 .cardTitle{
   background-color: white;
   outline-style: none;
+  margin-bottom: 0px;
 }
 h3{
   font-weight: bold;
+  margin-bottom: 0px;
 }
 .cardContainer:hover{
   -ms-transform: scale(1.1); /* IE 9 */
@@ -27,5 +29,17 @@ h3{
   flex-direction: column;
 }
 .nav-overlay-review uk-navbar-right{
+  width: 100%;
   justify-content: end;
+  height: 50px;
+}
+
+#writeaReview{
+  align-items: start;
+  justify-content: end;
+  width:100%;
+  padding-bottom: 0%;
+  padding-top: 0%;
+  color:#f4642d;
+  font-size: medium
 }

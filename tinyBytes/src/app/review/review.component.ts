@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ReviewService } from '../service/review.service';
 import { Router } from '@angular/router';
 import { IReview, ReviewInter } from '../interface/review';
-import { Subscription } from 'rxjs';
+import { Subscription, windowWhen } from 'rxjs';
 
 @Component({
   selector: 'review',
@@ -20,10 +20,21 @@ export class ReviewComponent implements OnInit, OnDestroy  {
   newReview!: ReviewInter;
   reviewSub!: Subscription;
   sendReviewSub!: Subscription;
+  icons: string[] = [
+    'https://www.flaticon.com/free-icon/mixing_2253443?related_id=2253443&origin=search',
+    'https://www.flaticon.com/free-icon/mixing_2253443?related_id=2253443&origin=search',
+    'https://www.flaticon.com/free-icon/mixing_2253443?related_id=2253443&origin=search'
+  ];
+  yourIcon!: string;
+
+  randomize(arr: string[]): string {
+    return arr[Math.floor(Math.random() * 4)];
+  }
 
   ngOnInit(): void {
     //Get User ID trhough local storage (must be number or convert)
     const recipeId = localStorage.getItem('recipeId');
+    this.yourIcon = this.randomize(this.icons);
     //Subscriptions
    this.reviewSub= this.reviewService.getReviews(recipeId).subscribe({
       next: reviews => {
@@ -42,6 +53,7 @@ export class ReviewComponent implements OnInit, OnDestroy  {
           console.log("Here is the new reivews: " , this.reviews)
         },
       })
+    window.location.reload()
   }
 
   ngOnDestroy() {

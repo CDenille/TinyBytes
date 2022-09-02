@@ -21,14 +21,16 @@ export class ReviewComponent implements OnInit, OnDestroy  {
   reviewSub!: Subscription;
   sendReviewSub!: Subscription;
   icons: string[] = [
-    'https://www.flaticon.com/free-icon/mixing_2253443?related_id=2253443&origin=search',
-    'https://www.flaticon.com/free-icon/mixing_2253443?related_id=2253443&origin=search',
-    'https://www.flaticon.com/free-icon/mixing_2253443?related_id=2253443&origin=search'
+    // 'https://www.flaticon.com/free-icon/mixing_2253443?related_id=2253443&origin=search',
+    // 'https://www.flaticon.com/free-icon/mixing_2253443?related_id=2253443&origin=search',
+    // 'https://www.flaticon.com/free-icon/mixing_2253443?related_id=2253443&origin=search'
+    'mixing.png',
+    'chef-hat.png'
   ];
   yourIcon!: string;
 
   randomize(arr: string[]): string {
-    return arr[Math.floor(Math.random() * 4)];
+    return arr[Math.floor(Math.random() * 2)];
   }
 
   ngOnInit(): void {

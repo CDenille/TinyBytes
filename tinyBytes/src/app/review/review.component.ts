@@ -46,14 +46,16 @@ export class ReviewComponent implements OnInit, OnDestroy  {
   }
 
   Review() {
+    const recipeId = localStorage.getItem('recipeId');
     this.sendReviewSub=this.reviewService.sendReview()
       .subscribe({
         next: newReview => {
           this.newReview = newReview,
-          console.log("Here is the new reivews: " , this.newReview)
+            console.log("Here is the new reivews: ", this.newReview)
+            this.router.navigate([`https://tinybytes.herokuapp.com/recipe/${recipeId}/reviews`])
         },
       })
-    window.location.reload()
+    // window.location.reload()
   }
 
   ngOnDestroy() {

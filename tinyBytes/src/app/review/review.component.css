@@ -21,14 +21,21 @@ h3{
   transition: 1s ease;
   color:#f4642d;
 }
-.cardContainer{
+#cardContainer{
   display: flex;
   flex-direction: row;
-  width: 35%;
+  width: 100%;
 }
-.cardContainerLeft{
+#cardContainerLeft{
+  width: 35%;
+  margin-right: 20px;
+}
+#cardContainerRight{
   display: flex;
   flex-direction: column;
+}
+.cardReview{
+  padding-bottom: 5px;
 }
 .uk-navbar-toggle{
   color:#f4642d;

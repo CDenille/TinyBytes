@@ -52,11 +52,9 @@ export class ReviewComponent implements OnInit, OnDestroy  {
         next: newReview => {
           this.newReview = newReview,
             console.log("Here is the new reivews: ", this.newReview)
-          // this.router.navigate([`recipe/${recipeId}`])
-          this.router.navigate(['/recipe',`${recipeId}`])
         },
       })
-    // window.location.reload()
+    window.location.reload()
   }
 
   ngOnDestroy() {

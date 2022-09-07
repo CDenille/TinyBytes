@@ -38,7 +38,7 @@ const handleError = (error, req, res, next) => {
 
 const findAllReviews = async (req, res, next)=> {
     const recipeId = req.params.recipeId;
-    const query = `SELECT Reviews.userName, Reviews.review
+    const query = `SELECT Reviews.userName, Reviews.review, Reviews.image
                     FROM Reviews
                     JOIN Recipes on Recipes.recipeId = Reviews.recipe_id
                     WHERE Reviews.recipe_id=(?);`

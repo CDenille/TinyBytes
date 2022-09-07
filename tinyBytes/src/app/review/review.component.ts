@@ -50,7 +50,7 @@ export class ReviewComponent implements OnInit, OnDestroy  {
       .subscribe({
         next: newReview => {
           this.newReview = newReview,
-          console.log("Here is the new reivews: " , this.reviews)
+          console.log("Here is the new reivews: " , this.newReview)
         },
       })
     window.location.reload()

@@ -60,3 +60,16 @@ h3{
   color:#f4642d;
   font-size: medium
 }
+
+#submitButton{
+  color:whitesmoke;
+  border-style: none;
+  width: 150px;
+  height: 18px;
+  background-color: #f4642d;
+  margin: 0 auto;
+  display: block;
+  margin-bottom: 5%;
+  margin-top: 2%;
+  font-size: 20px;
+}

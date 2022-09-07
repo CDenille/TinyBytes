@@ -15,7 +15,7 @@
             </div>
               <div id="cardContainer"*ngFor="let review of reviews.data" class="card" style="border: none;"> 
                 <div id="cardContainerLeft">
-                  <img src = "{{review.image}}" width="100px"> 
+                  <img src = "{{review.image}}" width="60px"> 
                 </div>
                 <div id="cardContainerRight">
                   <p class= "reviewCard" style="margin-top:0px;">{{review.review}}</p> 
@@ -33,7 +33,7 @@
             <input id="form-control me-2 userName" class="uk-search-input" type="text" placeholder="Username ..." autofocus>
             <input id="form-control me-2 review" class="uk-search-input" type="text" placeholder="Review ..." autofocus>
             <div>
-              <button class="uk-navbar-toggle" uk-toggle="target: .nav-overlay-review; animation: uk-animation-fade" (click)="Review()">Submit Review</button>
+              <button id="submitButton" class="uk-navbar-toggle" uk-toggle="target: .nav-overlay-review; animation: uk-animation-fade" (click)="Review()">Submit Review</button>
             </div>
         </form>
         </div>

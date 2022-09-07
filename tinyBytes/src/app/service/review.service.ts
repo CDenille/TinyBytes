@@ -6,6 +6,7 @@ import { IHttpError } from '../interface/error';
 import { Review } from '../review';
 import { ReviewInter } from '../interface/review';
 import { LocalStorageRefService } from '../service/local-storage-ref.service'
+import { RecipeComponent } from '../recipe/recipe.component';
 
 @Injectable({
   providedIn: 'root',
@@ -54,6 +55,7 @@ export class ReviewService {
       image: this.yourIcon
     }
     console.log("THe json", newReview)
+    console.log("Posting to recipe id", this.recipe_id)
     return this.http.post<any>(`https://tinybytes.herokuapp.com/recipe/reviews`, newReview)
       
   }

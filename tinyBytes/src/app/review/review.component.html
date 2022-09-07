@@ -15,11 +15,11 @@
             </div>
               <div id="cardContainer"*ngFor="let review of reviews.data" class="card" style="border: none;"> 
                 <div id="cardContainerLeft">
-                  <img src = "{{review.image}}" width="70"> 
+                  <img src = "{{review.image}}" width="100px"> 
                 </div>
                 <div id="cardContainerRight">
                   <p class= "reviewCard" style="margin-top:0px;">{{review.review}}</p> 
-                  <p style="margin-bottom:0px;">{{review.userName}}</p> 
+                  <p style="margin-top:5px;">{{review.userName}}</p> 
                   <!-- <img src ="./assets/mixing.png" width="40"> -->
                 </div>
               </div>

@@ -14,11 +14,14 @@
               <p id="writeaReview" class="uk-navbar-toggle" uk-toggle="target: .nav-overlay-review; animation: uk-animation-fade">Write a Review</p>
             </div>
               <div id="cardContainer"*ngFor="let review of reviews.data" class="card" style="border: none;"> 
-                  <h3>"</h3>
+                <div id="cardContainerLeft">
+                  <img src = "{{review.image}}" width="40"> 
+                </div>
+                <div id="cardContainerRight">
                   <p style="margin-top:0px;">{{review.review}}</p> 
                   <p style="margin-bottom:0px;">{{review.userName}}</p> 
-                  <img src ="./assets/{{yourIcon}}" width="40">
                   <!-- <img src ="./assets/mixing.png" width="40"> -->
+                </div>
               </div>
           </div>
         </div>

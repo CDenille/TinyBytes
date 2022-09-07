@@ -21,6 +21,15 @@ h3{
   transition: 1s ease;
   color:#f4642d;
 }
+.cardContainer{
+  display: flex;
+  flex-direction: row;
+  width: 35%;
+}
+.cardContainerLeft{
+  display: flex;
+  flex-direction: column;
+}
 .uk-navbar-toggle{
   color:#f4642d;
 }

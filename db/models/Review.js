@@ -9,6 +9,7 @@ Review.init(
   {
     userName: DataTypes.STRING,
     review: DataTypes.STRING,
+    image: DataTypes.STRING
   },
   {
     sequelize: db,

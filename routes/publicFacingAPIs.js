@@ -20,11 +20,11 @@ router.get('/topRecipies/:apiKey', async (req, res) => {
     const user = await User.findOne({where: {apiKey: apiKey}});
     //Could potentially save the api call to keep track of how many requests the user made and implement a cap
     if (user) {
-      const query = `SELECT Recipes.recipeId, Recipes.name, COUNT(Favorites.RecipeId) as Favorite_Count
+      const query = `SELECT Recipes.recipeId, Recipes.name, COUNT(Favorites.RecipeRecipeId) as Favorite_Count
                       FROM Favorites
-                      JOIN Recipes on Recipes.id = Favorites.RecipeId 
-                      GROUP BY Favorites.RecipeId 
-                      ORDER BY COUNT(Favorites.RecipeId) 
+                      JOIN Recipes on Recipes.recipeId = Favorites.RecipeRecipeId 
+                      GROUP BY Favorites.RecipeRecipeId 
+                      ORDER BY COUNT(Favorites.RecipeRecipeId ) 
                       DESC 
                       LIMIT 5`;
       const topRecipes = await db.query(query, {type: QueryTypes.SELECT});
@@ -49,7 +49,7 @@ router.get('/latestFavorited/:apiKey', async (req, res) => {
       const date = `${rawDate.getFullYear()}-${month}-${rawDate.getDate() - daysBack}`;
       const query = `SELECT Recipes.recipeId, Recipes.name, Favorites.createdAt
                       FROM Favorites
-                      JOIN Recipes on Recipes.id = Favorites.RecipeId 
+                      JOIN Recipes on Recipes.recipeId = Favorites.RecipeRecipeId 
                       WHERE Favorites.createdAt >= ${date}
                       ORDER BY Favorites.createdAt
                       DESC`;
@@ -71,7 +71,7 @@ router.get('/lastTenFavorites/:apiKey', async (req, res) => {
     if (user) {
       const query = `SELECT Recipes.recipeId, Recipes.name, Favorites.createdAt
                       FROM Favorites
-                      JOIN Recipes on Recipes.id = Favorites.RecipeId 
+                      JOIN Recipes on Recipes.recipeId = Favorites.RecipeRecipeId 
                       ORDER BY Favorites.createdAt
                       DESC
                       LIMIT 10`;

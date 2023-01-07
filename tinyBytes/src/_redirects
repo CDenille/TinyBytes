@@ -1,3 +1,3 @@
 /*  /index.html 200
-http://localhost:4200/signup https://tinybytes-production.up.railway.app/randomRecipe
-https://localhost:4200/signup https://tinybytes-production.up.railway.app/randomRecipe
+http://localhost:4200/signup/* https://tinybytes-production.up.railway.app/randomRecipe
+https://localhost:4200/signup/* https://tinybytes-production.up.railway.app/randomRecipe

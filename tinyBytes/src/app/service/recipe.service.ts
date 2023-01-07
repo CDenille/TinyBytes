@@ -16,13 +16,13 @@ export class RecipeService{
     apiKey ='&apiKey=db3f5aecd2e84a9ea1773b57ca6373f7'
 
     getRecipes(): Observable<Root>{
-        return this.http.get<Root>('https:tinybytes-production.up.railway.app/randomRecipe').pipe
+        return this.http.get<Root>('https://tinybytes-production.up.railway.app/randomRecipe').pipe
             (catchError(this.handleError)
         )
     }
 
     getDesserts(): Observable<Root>{
-        return this.http.get<Root>('https:tinybytes-production.up.railway.app/dessertRecipe').pipe
+        return this.http.get<Root>('https://tinybytes-production.up.railway.app/dessertRecipe').pipe
             (catchError(this.handleError)
         )
     }

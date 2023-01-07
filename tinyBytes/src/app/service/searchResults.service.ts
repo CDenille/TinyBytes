@@ -12,7 +12,7 @@ export class SearchService{
     constructor(private http: HttpClient) { }
 
     search(query: string): Observable<ISearchResults>{
-        return this.http.get<ISearchResults>(`https://tinybytes.herokuapp.com/search/${query}`).pipe(
+        return this.http.get<ISearchResults>(`http://d1ezott5xva4q0.cloudfront.net/search/${query}`).pipe(
             catchError(this.handleError)
         )
     }

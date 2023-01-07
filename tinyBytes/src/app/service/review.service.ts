@@ -36,7 +36,7 @@ export class ReviewService {
 
   getReviews(recipeId: any): Observable<any> {
     return this.http
-      .get<any>(`https://tinybytes.herokuapp.com/recipe/${recipeId}/reviews`)
+      .get<any>(`https://tinybytes-production.up.railway.app/recipe/${recipeId}/reviews`)
       .pipe(catchError(this.HttpErrorHandler))
   }
 
@@ -56,7 +56,7 @@ export class ReviewService {
     }
     console.log("THe json", newReview)
     console.log("Posting to recipe id", this.recipe_id)
-    return this.http.post<any>(`https://tinybytes.herokuapp.com/recipe/reviews`, newReview)
+    return this.http.post<any>(`https://tinybytes-production.up.railway.app/recipe/reviews`, newReview)
       
   }
 

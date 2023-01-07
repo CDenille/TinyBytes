@@ -17,7 +17,7 @@ export class RecipeDetailsService {
 
   getRecipeDetails(recipeId: string | null): Observable<IRecipeDetails | IHttpError> {
     return this.http
-      .get<IRecipeDetails>(`https://tinybytes.herokuapp.com/recipeDetails/${recipeId}`)
+      .get<IRecipeDetails>(`https://tinybytes-production.up.railway.app/recipeDetails/${recipeId}`)
       .pipe(
         // map((details) => {
         //   let container!: IRecipeDetails;
@@ -36,13 +36,13 @@ export class RecipeDetailsService {
 
   getRecipeInstructions(recipeId: string | null): Observable<IInstructions[] | IHttpError> {
     return this.http
-      .get<IInstructions[]>(`https://tinybytes.herokuapp.com/recipeInstructions/${recipeId}`)
+      .get<IInstructions[]>(`https://tinybytes-production.up.railway.app/recipeInstructions/${recipeId}`)
       .pipe(catchError(this.HttpErrorHandler))
   }
 
   getHTMLNutritionFacts(recipeId: string | null): Observable<string | IHttpError> {
     return this.http
-      .get(`https://tinybytes.herokuapp.com/HTMLNutritionFacts/${recipeId}`, { responseType: 'text' })
+      .get(`https://tinybytes-production.up.railway.app/HTMLNutritionFacts/${recipeId}`, { responseType: 'text' })
       .pipe(catchError(this.HttpErrorHandler))
   }
 

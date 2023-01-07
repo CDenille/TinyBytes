@@ -16,19 +16,19 @@ export class RecipeService{
     apiKey ='&apiKey=db3f5aecd2e84a9ea1773b57ca6373f7'
 
     getRecipes(): Observable<Root>{
-        return this.http.get<Root>('https://tinybytes.herokuapp.com/randomRecipe').pipe
+        return this.http.get<Root>('https:tinybytes-production.up.railway.app/randomRecipe').pipe
             (catchError(this.handleError)
         )
     }
 
     getDesserts(): Observable<Root>{
-        return this.http.get<Root>('https://tinybytes.herokuapp.com/dessertRecipe').pipe
+        return this.http.get<Root>('https:tinybytes-production.up.railway.app/dessertRecipe').pipe
             (catchError(this.handleError)
         )
     }
 
     getMostPopular(): Observable<Root>{
-        return this.http.get<Root>('https://tinybytes.herokuapp.com/popularRecipe').pipe
+        return this.http.get<Root>('https://tinybytes-production.up.railway.app/popularRecipe').pipe
             (catchError(this.handleError)
         )
     }
@@ -41,7 +41,7 @@ export class RecipeService{
         'Access-Control-Allow-Headers': 'Content-Type',
         'Authorization': `${thisUser}`
         });
-        const url = `https://tinybytes.herokuapp.com/user/${userId}/favorites?userId=${userId}&recipeId=${recipeId}`;
+        const url = `https://tinybytes-production.up.railway.app/user/${userId}/favorites?userId=${userId}&recipeId=${recipeId}`;
         return this.http.post<ArrayBuffer>(url, {name: foodName}).pipe
             (catchError(this.handleError)
         )
@@ -55,7 +55,7 @@ export class RecipeService{
         'Access-Control-Allow-Headers': 'Content-Type',
         'Authorization': `${thisUser}`
         });
-        const url = `https://tinybytes.herokuapp.com/user/${userId}/favorites?userId=${userId}&recipeId=${recipeId}`;
+        const url = `https://tinybytes-production.up.railway.app/user/${userId}/favorites?userId=${userId}&recipeId=${recipeId}`;
         return this.http.delete<ArrayBuffer>(url).pipe
             (catchError(this.handleError)
         )

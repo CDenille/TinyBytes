@@ -28,6 +28,6 @@ newUser = new User;
   console.log('Form value',this.signupForm)
     this.enrollmentService.enroll(this.signupForm.value)
   .subscribe(data =>{console.log(data)});
-    this.router.navigate(['https://tinybytes.herokuapp.com/'])
+    this.router.navigate(['http://tinybytes-production.up.railway.app'])
   }
 }

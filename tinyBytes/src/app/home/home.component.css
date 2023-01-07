@@ -1,7 +1,6 @@
 .main{
     display: flex;
     flex-direction: column;
-    max-width: 1350px;
 }
 h3 {
     font-family: Georgia, serif;
@@ -32,6 +31,10 @@ h3 {
 }
 .card:hover{
     color: #f4642d;
+}
+
+.card-text, .card-text.food-title {
+    font-family: sans-serif;
 }
 @media screen and (max-width: 500px) {
     .food-preview {

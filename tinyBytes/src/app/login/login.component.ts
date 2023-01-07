@@ -75,6 +75,10 @@ export class LoginComponent {
     })
   }
 
+  signUp() {
+    this.router.navigate(['http://localhost:4200/signup'])
+  }
+
   httpErrorHandler(err:HttpErrorResponse): Observable<any>{
     console.log('error code', err.status);
     if(err.status == 401){

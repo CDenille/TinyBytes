@@ -31,7 +31,7 @@
     </div>
     <button (click)="login()">Login</button>
     <div class="text-center" >
-      <p>Don't have an account? <a href="http://localhost:4200/signup">Sign up?</a></p>
+      <p [routerLink]="['/signup']">Don't have an account? </p>
     </div>
   </div>
 </div>

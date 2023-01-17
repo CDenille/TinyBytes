@@ -1,0 +1,4 @@
+[[redirects]]
+  from = "/signup"
+  to = " 'https://tinybytes-production.up.railway.app/signup'"
+  status = 200

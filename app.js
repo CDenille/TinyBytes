@@ -2,12 +2,10 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const request = require("request");
-// const PORT = 8080;
 const cors = require("cors");
 const {User, Recipe, Review} = require("./db/associations");
 const { use } = require("bcrypt/promises");
 
-//./tinyBytes/src/app/service/local-storage.service
 app.use(cors());
 
 app.use(express.static(__dirname + "/dist/tiny-bytes"));
@@ -23,17 +21,11 @@ apiKey = 'a42bca2f8c2f4c5194cd8aa86c365de7';
 // apiKey = 'f082f3f33d8e400b8898966f7fcbc069';
 // apiKey = 'b688d3dfcaec47b88ffd7cd4de8c743b';
 
-//api calls
-// app.get('/', (req, res) => {
-//   res.send('<h1>App Running</h1>')
-// })
-//homepage api calls
+
+// These routes calls the spoonacular api and renders
+// the data for our homepage
 
 app.use("/", require("./routes"));
-
-// app.get('/', async (req, res) => {
-//   res.send("Hello Denille")
-// });
 
 app.post("/logIn", async (req, res) => {
   try {
@@ -58,8 +50,6 @@ app.get("/randomRecipe", async (req, res) => {
       const data = response.body;
       const apiData = JSON.parse(data);
     }).pipe(res);
-  ///usr/local/google/home/denillec/TinyBytes/tinyBytes/dist/tiny-bytes/index.html
-  // res.sendFile(path.join(__dirname + "/tinyBytes/dist/tiny-bytes/index.html"));
 });
 
 app.get("/dessertRecipe", async (req, res) => {
@@ -82,7 +72,6 @@ app.get("/dessertRecipe", async (req, res) => {
       }
     }
   ).pipe(res);
-  // res.sendFile(path.join(__dirname + "/tinyBytes/dist/tiny-bytes/index.html"));
 });
 
 app.get("/popularRecipe", async (req, res) => {
@@ -105,7 +94,6 @@ app.get("/popularRecipe", async (req, res) => {
       }
     }
   ).pipe(res);
-  // res.sendFile(path.join(__dirname + "/tinyBytes/dist/tiny-bytes/index.html"));
 });
 
 //search page
@@ -153,11 +141,6 @@ function callAPI(url, consoleWord) {
     }
   );
 }
-// app.get('/randomRecipe', async (req, res) =>{
-//   let recipe = callAPI("https://api.spoonacular.com/recipes/complexSearch?sort=random&number=1",
-//     "Random").pipe(res)
-// });
-// homepage routes
 
 app.get("/dessertRecipe", async (req, res) => {
   request(

@@ -4,14 +4,6 @@ const { QueryTypes } = require('sequelize');
 const basicAuth = require('express-basic-auth');
 const auth = require('../routes/auth')
 
-// router.use(basicAuth({
-//     authorizer : auth,
-//     authorizeAsync: true,
-//     challenge: true,
-//     realm: 'foo',
-//     unauthorizedResponse : () => "You do not have access to this content. Please log in"
-// }))
-
 //Returns top 5 most favorited recipes (spoonacular id, recipe name, favorited count)
 router.get('/topRecipies/:apiKey', async (req, res) => {
   const apiKey = req.params.apiKey;

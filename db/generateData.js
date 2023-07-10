@@ -11,8 +11,6 @@ const seedUser = async () => {
   const buffer = await fs.readFile(seedPath);
   const users = JSON.parse(String(buffer));
 
-  // const usersPromise = users.map(user => User.create(user))
-  // await Promise.all(usersPromise)
   users.forEach(async (user) => await User.create(user));
 };
 
@@ -21,9 +19,6 @@ const seedRecipe = async () => {
   const buffer = await fs.readFile(seedPath);
   const recipes = JSON.parse(String(buffer));
 
-  // const recipePromise = recipes.map(recipe => Recipe.create(recipe))
-  // await Promise.all(recipePromise)
-
   recipes.forEach(async (recipe) => await Recipe.create(recipe));
 };
 
@@ -31,9 +26,6 @@ const seedReview = async () => {
   const seedPath = path.join(__dirname, './seedData/reviews.json');
   const buffer = await fs.readFile(seedPath);
   const reviews = JSON.parse(String(buffer));
-  
-  // const reviewPromise = reviews.map(review => Review.create(review))
-  // await Promise.all(reviewPromise)
 
   reviews.forEach(async (review) => await Review.create(review));
 };

@@ -78,13 +78,6 @@ const deleteFavoriteById = (req, res, next) => {
 
 const router = express.Router();
 
-// router.use(basicAuth({
-//     authorizer : dbAuthorizer,
-//     authorizeAsync: true,
-//     challenge: true,
-//     unauthorizedResponse : () => "You do not have access to this content. Please log in"
-// }))
-
 router.get('/:userId/favorites', findAllFavorites, sendResponse)
 router.post('/:userId/favorites', addFavorites, sendResponse)
 router.delete('/:userId/favorites', deleteFavoriteById, sendResponse)

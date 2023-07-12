@@ -31,7 +31,7 @@ const seedReview = async () => {
 };
 
 const randNum = () => {
-  const recipiesLength = 8;
+  const recipiesLength = 16;
   return Math.round(Math.random() * (recipiesLength - 1));
 };
 

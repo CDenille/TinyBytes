@@ -23,7 +23,7 @@ export class DocumentationComponent {
   endpoints = [
     {
       title: 'Top Recipies',
-      url: 'http://localhost:8080/publicApi/topRecipies',
+      url: 'https://tinybytes-production.up.railway.app/publicApi/topRecipies',
       description:
         'Returns a list containing the top favorited recipies. The list holds the spoonacular recipe id, the name of the food, and how many times it has been favorited.',
       imageUrl:
@@ -31,7 +31,7 @@ export class DocumentationComponent {
     },
     {
       title: 'Latest Favorited',
-      url: 'http://localhost:8080/publicApi/latestFavorited',
+      url: 'https://tinybytes-production.up.railway.app/publicApi/latestFavorited',
       description:
         'Returns a list containing favorited recipies for the past week.  The list holds the spoonacular recipe id, the name of the food, and when it was favorited.',
       imageUrl:
@@ -39,7 +39,7 @@ export class DocumentationComponent {
     },
     {
       title: 'Last Ten Favorited',
-      url: 'http://localhost:8080/publicApi/lastTenFavorites',
+      url: 'https://tinybytes-production.up.railway.app/publicApi/lastTenFavorites',
       description:
         'Returns a list containing the last 10 favorited recipes.  The list holds the spoonacular recipe id, the name of the food, and when it was favorited.',
       imageUrl:

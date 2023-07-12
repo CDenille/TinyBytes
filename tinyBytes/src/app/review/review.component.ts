@@ -54,7 +54,7 @@ export class ReviewComponent implements OnInit, OnDestroy  {
             console.log("Here is the new reivews: ", this.newReview)
         },
       })
-    window.location.reload()
+    // window.location.reload()
   }
 
   ngOnDestroy() {

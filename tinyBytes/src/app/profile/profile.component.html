@@ -1,60 +1,63 @@
 <main>
-    <h2>Profile</h2>
-    <section class="profile-user-info">
-        <div id="sign-up-container">
-            <div id="sign-up-modal">
-              <div class="xmark-icon">
-              
+  <h2>Profile</h2>
+  <section class="profile-user-info">
+    <div id="profile-container">
+      <div class="profileImage">
+        <img src="https://spoonacular.com/recipeImages/622598-636x393.jpg">
+      </div>
+      <div id="sign-up-modal">
+        <div class="xmark-icon">
+
+        </div>
+        <form>
+          <div id="entries">
+            <div class="full-name">
+              <div class="first-name">
+                <label>First Name</label>
+                <input type="text" [value]="profile.firstName" name="first" />
               </div>
-              <form >
-                <div id="entries">
-                  <div class="full-name">
-                    <div class="first-name">
-                      <label>First Name</label>
-                      <input type="text" [value]="profile.firstName" name="first" />
-                    </div>
-                    <div class="last-name">
-                      <label>Last Name</label>
-                      <input type="text" [value]="profile.lastName" name="last" />
-                    </div>
-                  </div>
-                  <div class="email">
-                    <label><i class="fa-regular fa-envelope"></i> Email</label>
-                    <input type="email" [value]="profile.email" name="email" />
-                  </div>
-                  <div class="password">
-                    <label><i class="fa-solid fa-lock"></i> Password</label>
-                    <input type="password" value="profile.password" name="password" placeholder="6+ characters"/>
-                  </div>
-                </div>
-              </form>
+              <div class="last-name">
+                <label>Last Name</label>
+                <input type="text" [value]="profile.lastName" name="last" />
+              </div>
+            </div>
+            <div class="email">
+              <label><i class="fa-regular fa-envelope"></i> Email</label>
+              <input type="email" [value]="profile.email" name="email" />
+            </div>
+            <div class="password">
+              <label><i class="fa-solid fa-lock"></i> Password</label>
+              <input type="password" value="profile.password" name="password" placeholder="6+ characters" />
             </div>
           </div>
-    </section>
-    <section class="newsletter">
-        <h3>Newsletter</h3>
-    <div class='newsletter-content'>
-        <p>You are currently subscribed to our tasty newsletter.</p>
-        <a class="unsub">Unsubscribe</a>
+        </form>
       </div>
-    </section>
-    <section class="api">
-      <h3>Developer Api</h3>
-  <div *ngIf="profile.developer === 0; else elseBlock"class='api-content'>
+    </div>
+  </section>
+  <section class="newsletter">
+    <h3>Newsletter</h3>
+    <div class='newsletter-content'>
+      <p>You are currently subscribed to our tasty newsletter.</p>
+      <a class="unsub">Unsubscribe</a>
+    </div>
+  </section>
+  <section class="api">
+    <h3>Developer Api</h3>
+    <div *ngIf="profile.developer === 0; else elseBlock" class='api-content'>
       <h4>Would you like to enroll to get access to our delicious API?</h4>
       <button type="button" (click)="generateApiKey()">Give me a key!</button>
-  </div>
-  <ng-template #elseBlock>
-    <p>Here is your api key to get full access to our fresh home-made api: <strong>{{profile.apiKey}}</strong></p>
-  </ng-template>
+    </div>
+    <ng-template #elseBlock>
+      <p>Here is your api key to get full access to our fresh home-made api: <strong>{{profile.apiKey}}</strong></p>
+    </ng-template>
     <a [routerLink]="['/documentation']">Take a look at what our API can do.</a>
 
   </section>
-    <div class='sign-out-delete'>
-      <div class="sign-out">
-        <i class="fa-solid fa-arrow-right-from-bracket"></i>
-        <a [routerLink]="['/login']" class="sign-out-link">Sign out</a> 
-      </div>
-      <a class="sign-out-link" (click)="deleteUser();">Delete Account </a>
+  <div class='sign-out-delete'>
+    <div class="sign-out">
+      <i class="fa-solid fa-arrow-right-from-bracket"></i>
+      <a [routerLink]="['/login']" class="sign-out-link">Sign out</a>
     </div>
+    <a class="sign-out-link" (click)="deleteUser();">Delete Account </a>
+  </div>
 </main>

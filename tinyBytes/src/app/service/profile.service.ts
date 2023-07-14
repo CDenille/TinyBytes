@@ -23,7 +23,7 @@ export class ProfileService {
     'Authorization': `${thisUser}`
     });
     return this.http
-      .get<IProfile>(`http://localhost:8080/profile/${userID}`, {headers:httpHeaders})
+      .get<IProfile>(`https://tinybytes-production.up.railway.app/${userID}`, {headers:httpHeaders})
       .pipe(catchError(this.HttpErrorHandler));
   }
 

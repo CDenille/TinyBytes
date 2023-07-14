@@ -11,7 +11,8 @@ import {LoginComponent} from '../login/login.component'
 export class EnrollmentService{
     url ="https://tinybytes-production.up.railway.app/chefs/" //url to post to
     constructor(private _http: HttpClient,
-    private login:LoginComponent) { }
+    // private login:LoginComponent
+    ) { }
 
     enrollUser(user:User): Observable<any>{
         const headers = { 'content-type': 'application/json'}

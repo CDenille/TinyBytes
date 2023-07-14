@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { HttpClient} from "@angular/common/http";
 import { EnrollmentService } from '../service/enrollment.service';
 import { UntypedFormBuilder, Validators } from '@angular/forms';
 import { IUser } from '../interface/user';
@@ -11,9 +12,12 @@ import { Router } from '@angular/router';
 export class SignupComponent {
 
   constructor(
-    private enrollmentService: EnrollmentService,
     private formBuilder: UntypedFormBuilder,
-    private router: Router) { }
+    private router: Router,
+    private http: HttpClient) { }
+
+    
+  private enrollmentService: EnrollmentService = new EnrollmentService(this.http);
 
   newUser!: IUser;
 

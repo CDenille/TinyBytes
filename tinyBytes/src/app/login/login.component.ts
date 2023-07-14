@@ -16,7 +16,7 @@ export class LoginComponent {
   constructor(
     private router: Router,
     private http: HttpClient,
-    private localStorage: LocalStorageRefService) { }
+    private localStorage: LocalStorageRefService) {}
 
   email! : string;
   password!: string;

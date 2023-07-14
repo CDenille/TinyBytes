@@ -18,8 +18,7 @@ router.put('/generateApi',async (req,res)=>{
     const user = await User.findOne({where: {email: email}});
     const key = `APIKEY${user.id}`
     user.update({apiKey:key,developer:1})
-     
-
+    console.log('API key added ', key)
     res.sendStatus(200)
   } catch (error) {
     console.log(error)

@@ -34,7 +34,7 @@ export class ProfileService {
     'Authorization': `${thisUser}`
     });
     return this.http
-      .put(`https://tinybytes-production.up.railway.app/profile/generateApi`, {email: email}, {headers:httpHeaders})
+      .put<any>(`https://tinybytes-production.up.railway.app/profile/generateApi`, {email: email}, {headers:httpHeaders})
       .pipe(catchError(this.HttpErrorHandler));
   }
 

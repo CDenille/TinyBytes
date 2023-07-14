@@ -106,13 +106,6 @@ export class RecipeComponent implements OnInit, OnDestroy, AfterViewInit {
           console.log('Nutrition HTML: ', nutritionHtml);
           this.nutrition = <string>nutritionHtml;
         },
-        // error: (err: IHttpError) => {
-        //   console.error('Status Code: ', err.statusCode);
-        //   console.error('Detailed Message: ', err.detailedMessage);
-        //   console.error('Component Message: ', err.componentMessage);
-        //   console.error('Status Text: ', err.statusText);
-        //   console.error('Data Type: ', err.dataType);
-        // },
       });
   }
 

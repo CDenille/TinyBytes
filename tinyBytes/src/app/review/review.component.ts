@@ -21,9 +21,6 @@ export class ReviewComponent implements OnInit, OnDestroy  {
   reviewSub!: Subscription;
   sendReviewSub!: Subscription;
   icons: string[] = [
-    // 'https://www.flaticon.com/free-icon/mixing_2253443?related_id=2253443&origin=search',
-    // https://www.flaticon.com/free-icon/mixing_2253443?related_id=2253443&origin=search'
-    // 'https://www.flaticon.com/free-icon/mixing_2253443?related_id=2253443&origin=search'
     'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTit2qrvJTMp3hxDAIQT3ZzoxEw8J6OUU5uKA&usqp=CAU',
     'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNooKYwVu6SYfgQAE6-KiNOz_3nSkyKMHiVw&usqp=CAU',
     'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlAg7yW35_YAfK42L5sUydIhi3175iUXaZHg&usqp=CAU',
@@ -54,7 +51,7 @@ export class ReviewComponent implements OnInit, OnDestroy  {
             console.log("Here is the new reivews: ", this.newReview)
         },
       })
-    window.location.reload()
+    window.location.href = `https://tinybytes-production.up.railway.app/recipe/${recipeId}`;
   }
 
   ngOnDestroy() {

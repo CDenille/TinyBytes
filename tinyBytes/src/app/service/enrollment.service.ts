@@ -7,7 +7,7 @@ import {LoginComponent} from '../login/login.component'
     providedIn:'root'
 })
 export class EnrollmentService{
-    url ="https://tinybytes-production.up.railway.app/chefs" //url to post to
+    url ="https://tinybytes-production.up.railway.app/chefs/" //url to post to
     constructor(private _http: HttpClient,
     private login:LoginComponent) { }
 

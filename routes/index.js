@@ -5,7 +5,7 @@ const profileRoute = require('./profile')
 const publicApiRoute = require('./publicFacingAPIs')
 const reviewRoute = require('./review')
 
-router.use('/', userRoute)
+router.use('/chefs', userRoute)
 router.use('/user', favoritesRoute)
 router.use('/profile', profileRoute)
 router.use('/publicApi', publicApiRoute)

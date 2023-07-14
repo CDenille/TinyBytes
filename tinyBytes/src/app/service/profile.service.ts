@@ -35,7 +35,7 @@ export class ProfileService {
     'Authorization': `${thisUser}`
     });
     return this.http
-      .put(`http://localhost:8080/profile/generateApi`, {email: email}, {headers:httpHeaders})
+      .put(`https://tinybytes-production.up.railway.app/profile/generateApi`, {email: email}, {headers:httpHeaders})
       .pipe(catchError(this.HttpErrorHandler));
   }
 
@@ -49,7 +49,7 @@ export class ProfileService {
     });
     localStorage.clear();
     return this.http
-      .delete<any>(`http://localhost:8080/profile/${userID}`, {headers:httpHeaders});
+      .delete<any>(`https://tinybytes-production.up.railway.app/profile/${userID}`, {headers:httpHeaders});
   }
 
   private HttpErrorHandler(err: HttpErrorResponse): Observable<IHttpError> {

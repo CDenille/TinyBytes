@@ -24,9 +24,9 @@ export class SignupComponent {
     password: ['', [Validators.required, Validators.minLength(6)]]
   })
 
-  enrollUser() {
+  submit() {
     console.log('Form value', this.signupForm)
-    this.enrollmentService.enroll(this.signupForm.value)
+    this.enrollmentService.enrollUser(this.signupForm.value)
       .subscribe(data => { console.log(data) });
     this.router.navigate(['http://localhost:4200'])
   }

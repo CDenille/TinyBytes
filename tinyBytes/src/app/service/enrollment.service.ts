@@ -11,7 +11,7 @@ export class EnrollmentService{
     constructor(private _http: HttpClient,
     private login:LoginComponent) { }
 
-    enroll(user:User){
+    enrollUser(user:User){
         const headers = { 'content-type': 'application/json'}
         const body = JSON.stringify(user)
         return this._http.post<any>(this.url, body, { 'headers': headers })

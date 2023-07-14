@@ -2,7 +2,6 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { IHttpError } from '../interface/error';
 import { IProfile } from '../interface/profile';
 import { LocalStorageService } from '../service/local-storage.service';
 
@@ -14,7 +13,7 @@ export class ProfileService {
   constructor(
     private http: HttpClient) { }
 
-  getUserData(userId: string | null): Observable<IProfile | IHttpError> {
+  getUserData(userId: string | null): Observable<IProfile> {
     let thisUser = localStorage.getItem('Current User')
     let userID = localStorage.getItem('User ID')
     const httpHeaders = new HttpHeaders({
@@ -52,7 +51,7 @@ export class ProfileService {
       .delete<any>(`https://tinybytes-production.up.railway.app/profile/${userID}`, {headers:httpHeaders});
   }
 
-  private HttpErrorHandler(err: HttpErrorResponse): Observable<IHttpError> {
+  private HttpErrorHandler(err: HttpErrorResponse){
     console.log(err)
     return throwError(() => err);
   }

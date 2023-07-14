@@ -10,9 +10,7 @@ import {LoginComponent} from '../login/login.component'
 })
 export class EnrollmentService{
     url ="https://tinybytes-production.up.railway.app/chefs/" //url to post to
-    constructor(private _http: HttpClient,
-    // private login:LoginComponent
-    ) { }
+    constructor(private _http: HttpClient) { }
 
     enrollUser(user:User): Observable<any>{
         const headers = { 'content-type': 'application/json'}

@@ -9,7 +9,7 @@ import { Subscription, windowWhen } from 'rxjs';
   templateUrl: './review.component.html',
   styleUrls: ['./review.component.css'],
 })
-export class ReviewComponent implements OnInit, OnDestroy  {
+export class ReviewComponent implements OnInit {
   constructor(
     private reviewService: ReviewService,
     private router: Router
@@ -54,8 +54,8 @@ export class ReviewComponent implements OnInit, OnDestroy  {
       window.location.reload();
   }
 
-  ngOnDestroy() {
-    this.reviewSub.unsubscribe();
-    this.sendReviewSub.unsubscribe();
-  }
+  // ngOnDestroy() {
+  //   this.reviewSub.unsubscribe();
+  //   this.sendReviewSub.unsubscribe();
+  // }
 }

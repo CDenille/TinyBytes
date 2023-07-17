@@ -7,6 +7,7 @@
   <section>
     <h5>{{endpoint.title}}</h5>
     <p class="description">{{endpoint.description}}</p>
+    <p class="response-type">Reponse format: JSON</p>
       <div class="url-container">
         <div class="url-code">
           <p class="method">GET</p>
@@ -14,7 +15,6 @@
         </div>
         <button class='api-button'*ngIf="developer" (click)="navigateToEndpoint(endpoint.url)">Click Me!</button>
       </div>
-    <p class="response-type">Reponse format: JSON</p>
-    <img [src]="endpoint.imageUrl"/>
+    <!-- <img [src]="endpoint.imageUrl"/> -->
   </section>
 </div>

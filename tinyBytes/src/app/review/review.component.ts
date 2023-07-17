@@ -42,6 +42,7 @@ export class ReviewComponent implements OnInit {
     });
   }
   Review() {
+    console.log("Getting a review")
     const recipeId = localStorage.getItem('recipeId');
     this.sendReviewSub=this.reviewService.sendReview()
       .subscribe({

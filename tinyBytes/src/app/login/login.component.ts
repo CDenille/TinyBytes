@@ -1,10 +1,7 @@
-import { Component} from '@angular/core';
-import { Router } from '@angular/router';
-import { Observable, of, Subscription, throwError } from 'rxjs';
-import { HttpClient, HttpHeaders, HttpRequest, HttpErrorResponse } from '@angular/common/http';
+import { Component } from '@angular/core';
+import { HttpHeaders } from '@angular/common/http';
 import { LocalStorageRefService } from '../service/local-storage-ref.service';
-import { IUser } from "../interface/user";
-import { catchError } from 'rxjs/operators';
+import { LoginService } from '../service/login.service';
 
 @Component({
   selector: 'Login',
@@ -14,8 +11,7 @@ import { catchError } from 'rxjs/operators';
 export class LoginComponent {
   
   constructor(
-    private router: Router,
-    private http: HttpClient,
+    private loginService: LoginService,
     private localStorage: LocalStorageRefService) {}
 
   email! : string;
@@ -26,9 +22,6 @@ export class LoginComponent {
 
   //alerts
   usernamePasswordError: boolean = false;
-
-  //subscription
-  loginSub!: Subscription;
 
   ngOnInit() {
     this.localStorage.localStorage.clear();
@@ -48,46 +41,6 @@ export class LoginComponent {
     console.log(httpHeaders);
     console.log(localStorage.getItem('Current User'));
     console.log("Basic: ",this.basic)
-    this.loginService(options);
+    this.loginService.login(options, this.email, this.password);
   }
-
-  loginService(options: any): void{
-    const requestObservable: Observable<any> = this.http.post<any>(
-      'https://tinybytes-production.up.railway.app/logIn', 
-      { 
-        "email": this.email, 
-        "password": this.password
-      }, 
-      options)
-    requestObservable.pipe(catchError(this.httpErrorHandler)).subscribe({
-        next: (response: any) => { 
-          console.log("Here's the data", response)
-          if(response.status == 401){
-            this.usernamePasswordError = true
-          } else {
-            this.userID = response.id
-            localStorage.setItem('User ID', this.userID);
-            localStorage.setItem('ApiKey', response.apiKey)
-            console.log("User if from localStorage" , localStorage.getItem('User ID'))
-            this.router.navigate(['http://localhost:4200'])
-          }
-        }
-    })
-  }
-
-  signUp() {
-    this.router.navigate(['http://localhost:4200/signup'])
-  }
-
-  httpErrorHandler(err:HttpErrorResponse): Observable<any>{
-    console.log('error code', err.status);
-    if(err.status == 401){
-      //password/username mismatch
-      return of(err);
-    } else {
-      //all other error codes
-      return throwError(()=> err)
-    }
-  }
-
 }

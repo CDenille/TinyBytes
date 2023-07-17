@@ -42,9 +42,11 @@ export class ReviewComponent implements OnInit {
     });
   }
 
-  redirectTo(uri: string) {
-    this.router.navigateByUrl('/categories', { skipLocationChange: true }).then(() =>
-    this.router.navigate([uri]));
+  redirectTo() {
+    const currentUrl = this.router.url;
+    this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
+        this.router.navigate([currentUrl]);
+    });
  }
 
   Review() {
@@ -56,7 +58,7 @@ export class ReviewComponent implements OnInit {
             console.log("Here is the new reivews: ", this.newReview)
         }
       })
-      this.redirectTo(`/recipe/${recipeId}`);
+      this.redirectTo();
   }
 
   ngOnDestroy() {

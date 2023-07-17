@@ -10,7 +10,7 @@ export class UnauthorizedComponent implements OnInit {
 
   ngOnInit(): void {
     setTimeout(()=>{
-      window.location.href = "/"
+      window.location.href = "/login"
     }, 9000)
   }
 }

@@ -58,7 +58,7 @@ export class ReviewComponent implements OnInit {
             console.log("Here is the new reivews: ", this.newReview)
         }
       })
-      this.redirectTo();
+      window.location.reload()
   }
 
   ngOnDestroy() {

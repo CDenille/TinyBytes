@@ -4,13 +4,13 @@ const {User} = require('../db/associations');
 const basicAuth = require('express-basic-auth');
 const auth = require ('../routes/auth')
 
-// router.use(basicAuth({
-//     authorizer : auth,
-//     authorizeAsync: true,
-//     challenge: true,
-//     realm: 'foo',
-//     unauthorizedResponse : () => "You do not have access to this content. Please log in"
-// }))
+router.use(basicAuth({
+    authorizer : auth,
+    authorizeAsync: true,
+    challenge: true,
+    realm: 'foo',
+    unauthorizedResponse : () => "You do not have access to this content. Please log in"
+}))
 
 router.put('/generateApi',async (req,res)=>{
   const email = req.body.email
@@ -39,7 +39,7 @@ router.get('/:userId', async (req, res) => {
       };
       res.status(200).json(context);
     } else {
-      res.redirect('/unauthorized');
+      res.redirect(404).send(`No current user exist by this userId: ${req.params.userId}.`);
     }
   } catch (error) {
     res.status(500).send(`Server error, please try again at a later time. Error: ${error}`);

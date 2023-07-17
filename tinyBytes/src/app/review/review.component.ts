@@ -50,6 +50,7 @@ export class ReviewComponent implements OnInit {
             console.log("Here is the new reivews: ", this.newReview)
         }
       })
+      this.router.navigate(["/"])
       this.router.navigate([`/recipe/${recipeId}`])
   }
 

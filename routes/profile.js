@@ -4,13 +4,13 @@ const {User} = require('../db/associations');
 const basicAuth = require('express-basic-auth');
 const auth = require ('../routes/auth')
 
-router.use(basicAuth({
-    authorizer : auth,
-    authorizeAsync: true,
-    challenge: true,
-    realm: 'foo',
-    unauthorizedResponse : () => "You do not have access to this content. Please log in"
-}))
+// router.use(basicAuth({
+//     authorizer : auth,
+//     authorizeAsync: true,
+//     challenge: true,
+//     realm: 'foo',
+//     unauthorizedResponse : () => "You do not have access to this content. Please log in"
+// }))
 
 router.put('/generateApi',async (req,res)=>{
   const email = req.body.email

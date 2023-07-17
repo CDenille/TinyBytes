@@ -42,6 +42,11 @@ export class ReviewComponent implements OnInit {
     });
   }
 
+  redirectTo(uri: string) {
+    this.router.navigateByUrl('/categories', { skipLocationChange: true }).then(() =>
+    this.router.navigate([uri]));
+ }
+
   Review() {
     const recipeId = localStorage.getItem('recipeId');
     this.sendReviewSub=this.reviewService.sendReview()
@@ -51,7 +56,7 @@ export class ReviewComponent implements OnInit {
             console.log("Here is the new reivews: ", this.newReview)
         }
       })
-      this.router.navigate([`/recipe/${recipeId}`]);
+      this.redirectTo(`/recipe/${recipeId}`);
   }
 
   ngOnDestroy() {

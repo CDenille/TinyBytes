@@ -51,7 +51,9 @@ export class ReviewComponent implements OnInit {
             console.log("Here is the new reivews: ", this.newReview)
         }
       })
-      window.location.href = `/recipe/${recipeId}`;
+      setTimeout(()=>{
+        window.location.href =  `/recipe/${recipeId}`
+      }, 2000);
   }
 
   ngOnDestroy() {

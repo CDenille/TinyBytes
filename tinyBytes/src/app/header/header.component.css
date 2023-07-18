@@ -24,25 +24,23 @@ hr{
     width: 55%;
     display: flex;
     justify-content: space-between;
-    color: #f4642d;
 }
 
-.fs-3 {
+.fs-3, .uk-icon-button, .uk-navbar-toggle.uk-icon.uk-search-icon {
   color: black;
 }
 
-.fs-3:hover, .login-icon:hover, .uk-navbar-toggle:hover{
+.fs-3:hover, .uk-icon-button:hover, .uk-navbar-toggle.uk-icon.uk-search-icon:hover {
   color:#f4642d;
 }
 
 .active {
   font-weight: bold;
-  color: #f4642d
 }
 
 .uk-search-input::placeholder{
   color: #f4642d;
-  opacity: .5;
+  opacity: .7;
 }
 
 @media screen and (max-width:450px){

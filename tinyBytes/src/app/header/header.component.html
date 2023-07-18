@@ -1,31 +1,39 @@
 <div class="logo">
-  <img alt="image of tinyBytes logo" src ="./assets/tinyBytesLogo.jpeg" width=275>
+  <img alt="image of tinyBytes logo" src="./assets/tinyBytesLogo.jpeg" width=275>
 </div>
-<hr size="5" width="100%" style="margin:0; margin-top: 20px;"> 
+<hr size="5" width="100%" style="margin:0; margin-top: 20px;">
 <div uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky">
-<nav id="navContainer" class="uk-navbar-container uk-margin " uk-navbar>
-  <div class="container-fluid uk-background-default" >
-    <div id="navbar-left" class="nav-overlay uk-navbar-left">
-      <a style="text-decoration:none" class="fs-3" routerLink= "">Home</a>
-      <a style="text-decoration:none" class="fs-3" routerLink= "categories">Cuisines</a>
-      <a style="text-decoration:none" class="fs-3" (click)="goToProfile();">Profile</a>
-      <a style="text-decoration:none" class="fs-3" routerLink="favorites">Favorites</a>
-      <a style="text-decoration:none" class="fs-3" routerLink="documentation">API</a>
-    </div>
-    <div class="nav-overlay uk-navbar-right">
-      <a class="login-icon" style="margin-right:50px;" uk-icon="icon: user; ratio: 2" routerLink= "login"></a>
-      <a class="uk-navbar-toggle" style="margin-right:50px;" uk-search-icon="ratio:2" uk-toggle="target: .nav-overlay; animation: uk-animation-fade"></a>
-    </div>
-    <div class="nav-overlay uk-navbar-left uk-flex-1" hidden>
-      <div class="uk-navbar-item uk-width-expand">
-        <form class="uk-search uk-search-large uk-width-1-1" (ngSubmit)="startSearch();" >
-            <input id="form-control me-2" class="uk-search-input" type="search" placeholder="Search..." autofocus>
-        </form>
+  <nav id="navContainer" class="uk-navbar-container uk-margin " uk-navbar>
+    <div class="container-fluid uk-background-default">
+      <div id="navbar-left" class="nav-overlay uk-navbar-left">
+        <a style="text-decoration:none" class="fs-3" routerLink="">Home</a>
+        <a style="text-decoration:none" class="fs-3" routerLink="categories">Cuisines</a>
+        <a style="text-decoration:none" class="fs-3" (click)="goToProfile();">Profile</a>
+        <a style="text-decoration:none" class="fs-3" routerLink="favorites">Favorites</a>
+        <a style="text-decoration:none" class="fs-3" routerLink="documentation">API</a>
       </div>
-      <a class="uk-navbar-toggle" uk-close="ratio:2" uk-toggle="target: .nav-overlay; animation: uk-animation-fade" href="#"></a>
+      <div class="nav-overlay uk-navbar-right">
+        <div class="divSignin">
+          <a class="uk-icon-button" uk-toggle="target: .divSignin;" style="margin-right:50px;"
+            uk-icon="icon: sign-in; ratio: 2" routerLink="login"></a>
+        </div>
+        <div class="divSignin" hidden>
+          <a class="uk-icon-button" uk-toggle="target: .divSignin;" style="margin-right:50px;"
+            uk-icon="icon: sign-out; ratio: 2" routerLink="login" ></a>
+        </div>
+        <a class="uk-navbar-toggle" style="margin-right:50px;" uk-search-icon="ratio:2"
+          uk-toggle="target: .nav-overlay; animation: uk-animation-fade"></a>
+      </div>
+      <div class="nav-overlay uk-navbar-left uk-flex-1" hidden>
+        <div class="uk-navbar-item uk-width-expand">
+          <form class="uk-search uk-search-large uk-width-1-1" (ngSubmit)="startSearch();">
+            <input id="form-control me-2" class="uk-search-input" type="search" placeholder="Search..." autofocus>
+          </form>
+        </div>
+        <a class="uk-navbar-toggle" uk-close="ratio:2" uk-toggle="target: .nav-overlay; animation: uk-animation-fade"
+          href="#"></a>
+      </div>
     </div>
-  </div>
-</nav> 
+  </nav>
 </div>
-<hr size="5" width="100%" style="margin-top: 0%;"> 
-
+<hr size="5" width="100%" style="margin-top: 0%;">

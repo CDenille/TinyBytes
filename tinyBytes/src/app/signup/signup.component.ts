@@ -44,22 +44,21 @@ export class SignupComponent {
         next: user => {
           this.newUser = user,
             console.log('Heres the new user', this.newUser)
+          //the user should be signed in once signing up
+          this.localStorage.localStorage.clear();
+          this.credentials = this.signupForm.value.email + ":" + this.signupForm.value.password;
+          this.basic = "Basic " + btoa(this.credentials);
+          const httpHeaders = new HttpHeaders({
+            'Content-Type': 'application/json; charset=utf-8',
+            'Authorization': this.basic,
+          });
+          let options = { headers: httpHeaders };
+          localStorage.setItem('Current User', this.basic);
+          console.log(httpHeaders);
+          console.log(localStorage.getItem('Current User'));
+          console.log("Basic: ", this.basic)
+          this.loginService.login(options, this.signupForm.value.email, this.signupForm.value.password);
         }
       });
-
-    //the user should be signed in once signing up
-    this.localStorage.localStorage.clear();
-    this.credentials = this.signupForm.value.email + ":" + this.signupForm.value.password;
-    this.basic = "Basic " + btoa(this.credentials);
-    const httpHeaders = new HttpHeaders({
-      'Content-Type': 'application/json; charset=utf-8',
-      'Authorization': this.basic,
-    });
-    let options = { headers: httpHeaders };
-    localStorage.setItem('Current User', this.basic);
-    console.log(httpHeaders);
-    console.log(localStorage.getItem('Current User'));
-    console.log("Basic: ", this.basic)
-    this.loginService.login(options, this.signupForm.value.email, this.signupForm.value.password);
   }
 }

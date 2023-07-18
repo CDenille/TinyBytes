@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 import { HttpHeaders } from '@angular/common/http';
 import { LocalStorageRefService } from '../service/local-storage-ref.service';
 import { LoginService } from '../service/login.service';
@@ -22,6 +22,8 @@ export class LoginComponent {
 
   //alerts
   usernamePasswordError: boolean = false;
+
+  @ViewChild('#divsignIn') divsignInRef!: ElementRef;
 
   ngOnInit() {
     this.localStorage.localStorage.clear();

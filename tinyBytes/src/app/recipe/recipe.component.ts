@@ -6,7 +6,6 @@ import { IHttpError } from '../interface/error';
 import { IUserData } from '../interface/userData';
 import { RecipeDetailsService } from '../service/recipeDetails.service';
 import { RecipeService } from '../service/recipe.service';
-import { ReviewComponent } from '../review/review.component';
 import { LocalStorageRefService } from '../service/local-storage-ref.service';
 
 @Component({
@@ -19,7 +18,7 @@ export class RecipeComponent implements OnInit, OnDestroy, AfterViewInit {
     private recipeDetailsService: RecipeDetailsService,
     private recipeService: RecipeService,
     private localStorage: LocalStorageRefService
-  ) {}
+  ) { }
 
   //Subscription Variables
   detailsSub!: Subscription;
@@ -84,26 +83,21 @@ export class RecipeComponent implements OnInit, OnDestroy, AfterViewInit {
       .getRecipeDetails(this.recipeId)
       .subscribe({
         next: (details: IRecipeDetails | IHttpError) => {
-          console.log('Details Data: ', details);
           this.details = <IRecipeDetails>details;
           localStorage.setItem('recipeName', this.details.title);
         },
-        // error: (err: IHttpError) => console.error(err.detailedMessage),
       });
     this.instructionsSub = this.recipeDetailsService
       .getRecipeInstructions(this.recipeId)
       .subscribe({
         next: (instructions: IInstructions[] | IHttpError) => {
-          console.log('Instructions Data: ', <IInstructions[]>instructions);
           this.instructions = <IInstructions[]>instructions;
         },
-        // error: (err: IHttpError) => console.error(err.detailedMessage),
       });
     this.nutritionSub = this.recipeDetailsService
       .getHTMLNutritionFacts(this.recipeId)
       .subscribe({
         next: (nutritionHtml: string | IHttpError) => {
-          console.log('Nutrition HTML: ', nutritionHtml);
           this.nutrition = <string>nutritionHtml;
         },
       });

@@ -14,7 +14,7 @@ export class ReviewComponent implements OnInit {
     private reviewService: ReviewService,
     private router: Router
   ) { }
-  
+
 
   reviews!: IReview;
   newReview!: ReviewInter;
@@ -33,29 +33,25 @@ export class ReviewComponent implements OnInit {
     //Get User ID trhough local storage (must be number or convert)
     const recipeId = localStorage.getItem('recipeId');
     //Subscriptions
-   this.reviewSub= this.reviewService.getReviews(recipeId).subscribe({
+    this.reviewSub = this.reviewService.getReviews(recipeId).subscribe({
       next: reviews => {
-        this.reviews = reviews,
-        console.log("RecipeId: " , recipeId)
-        console.log("Here are the reivews: " , this.reviews)
+        this.reviews = reviews
       },
     });
   }
   Review() {
-    console.log("Getting a review")
     const recipeId = localStorage.getItem('recipeId');
-    this.sendReviewSub=this.reviewService.sendReview()
+    this.sendReviewSub = this.reviewService.sendReview()
       .subscribe({
         next: newReview => {
-          this.newReview = newReview,
-            console.log("Here is the new reivews: ", this.newReview)
+          this.newReview = newReview
         }
       })
 
-      // timeout allows the post to complete before we request the data back
-      setTimeout(()=>{
-        window.location.href =  `/recipe/${recipeId}`
-      }, 1500);
+    // timeout allows the post to complete before we request the data back
+    setTimeout(() => {
+      window.location.href = `/recipe/${recipeId}`
+    }, 1500);
   }
 
   ngOnDestroy() {

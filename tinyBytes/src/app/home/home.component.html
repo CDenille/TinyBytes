@@ -1,23 +1,26 @@
- <section class='main'>
-  <div class="row g-0"*ngFor='let recipe of recipes.results'>
-    <div class="col-lg-7" >
-      <img src="https://spoonacular.com/recipeImages/{{recipe.id}}-636x393.jpg" [routerLink]="['/recipe', recipe.id]"class="w-100" alt="photo of food">
+<section class='main'>
+  <div class="row g-0" *ngFor='let recipe of recipes.results'>
+    <div class="col-lg-7">
+      <img src="https://spoonacular.com/recipeImages/{{recipe.id}}-636x393.jpg" [routerLink]="['/recipe', recipe.id]"
+        class="w-100" alt="photo of food">
     </div>
     <div class="col-lg-5">
-      <div class="p-4 p-md-5 d-flex flex-column justify-content-center h-100 position-relative" style="background-color: #f4642d;">
+      <div class="p-4 p-md-5 d-flex flex-column justify-content-center h-100 position-relative"
+        style="background-color: #f4642d;">
         <p class="big pr-0 pr-md-5 pb-3 pb-sm-5 pb-lg-0">Wanna try something new? Check out this pick of the day!</p>
         <h4 class="my-3" [routerLink]="['/recipe', recipe.id]">{{recipe.title}} </h4>
       </div>
     </div>
   </div>
-<br>
-    <section>
-        <h3>Super Delicious</h3>
-        <div class='food-preview border-white'>
-          <div  *ngFor='let popular of mostPopular.results'>
-          <div class="card" style="width: 18rem; border: none;" >
+  <br>
+  <section>
+    <h3>Super Delicious</h3>
+    <div class='food-preview border-white'>
+      <div *ngFor='let popular of mostPopular.results'>
+        <div class="card" style="width: 18rem; border: none;">
           <div class='img-zoom'>
-            <img [src]='popular.image' class="card-img-top rounded" alt="photo of popular dish" [routerLink]="['/recipe', popular.id]">
+            <img [src]='popular.image' class="card-img-top rounded" alt="photo of popular dish"
+              [routerLink]="['/recipe', popular.id]">
           </div>
           <div class="card-body food-title">
             <p [routerLink]="['/recipe', popular.id]" class="card-text">{{popular.title}}</p>
@@ -25,20 +28,21 @@
         </div>
       </div>
     </div>
-    </section>
-    <section>
-        <h3>Sweet Tooth</h3>
-        <div class='food-preview'>
-          <div *ngFor='let dessert of desserts.results'> 
-            <div class="card" style="width: 18rem; border: none;">
-            <div class='img-zoom'>
-              <img [src]="dessert.image" class="card-img-top rounded" alt="photo of dessert" [routerLink]="['/recipe', dessert.id]">
-            </div>
-            <div class="card-body">
-              <p class="card-text food-title" [routerLink]="['/recipe', dessert.id]">{{dessert.title}}</p>
+  </section>
+  <section>
+    <h3>Sweet Tooth</h3>
+    <div class='food-preview'>
+      <div *ngFor='let dessert of desserts.results'>
+        <div class="card" style="width: 18rem; border: none;">
+          <div class='img-zoom'>
+            <img [src]="dessert.image" class="card-img-top rounded" alt="photo of dessert"
+              [routerLink]="['/recipe', dessert.id]">
+          </div>
+          <div class="card-body">
+            <p class="card-text food-title" [routerLink]="['/recipe', dessert.id]">{{dessert.title}}</p>
           </div>
         </div>
-        </div>
       </div>
-    </section>
-  </section> 
+    </div>
+  </section>
+</section>

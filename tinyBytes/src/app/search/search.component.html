@@ -1,14 +1,17 @@
 <section>
-    <div id="searchHeader" class="d-flex flex-row justify-content-between align-items-start" style="padding-bottom: 1%;" >
-      <h3 style="font-size: 22px;">Search Results</h3>
-      <h4 style="font-size: 16px;">({{results.totalResults}} Recipes)</h4>
-    </div>  
-    <div id="resultCard" class="row row-cols-lg-5 row-cols-md-3 row-cols-md-2 hd-grid gap-4 d-flex justify-content-around .h-100">
-      <div id="cardContainer"*ngFor="let result of results.results" class="card" style="border: none;"> 
-        <a [routerLink]="['/recipe', result.id]">
-          <img id="resultImg" class="card-img-top rounded img-fluid img-responsive" style="margin-bottom: 2%;" [src]="result.image" alt="A Recipe"/>
-        </a>
-        <p [routerLink]="['/recipe', result.id]" class="resultTitle" style="font-size: 20px; font-weight: 500;">{{result.title}}</p>
-      </div>
+  <div id="searchHeader" class="d-flex flex-row justify-content-between align-items-start" style="padding-bottom: 1%;">
+    <h3 style="font-size: 22px;">Search Results</h3>
+    <h4 style="font-size: 16px;">({{results.totalResults}} Recipes)</h4>
+  </div>
+  <div id="resultCard"
+    class="row row-cols-lg-5 row-cols-md-3 row-cols-md-2 hd-grid gap-4 d-flex justify-content-around .h-100">
+    <div id="cardContainer" *ngFor="let result of results.results" class="card" style="border: none;">
+      <a [routerLink]="['/recipe', result.id]">
+        <img id="resultImg" class="card-img-top rounded img-fluid img-responsive" style="margin-bottom: 2%;"
+          [src]="result.image" alt="A Recipe" />
+      </a>
+      <p [routerLink]="['/recipe', result.id]" class="resultTitle" style="font-size: 20px; font-weight: 500;">
+        {{result.title}}</p>
     </div>
-  </section>
+  </div>
+</section>

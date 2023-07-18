@@ -1,10 +1,9 @@
-
 #profile-container {
     display: flex;
     flex-direction: row;
 }
 
-.profileImage{
+.profileImage {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -21,13 +20,13 @@
 #sign-up-modal span {
     color: #4f3cc9;
 }
-  
+
 h1 {
     margin: 0;
     font-size: 35px
-  }
-  
-  form {
+}
+
+form {
     margin-top: 20px;
 }
 
@@ -36,7 +35,7 @@ h1 {
     flex-direction: column;
 }
 
-#entries > div {
+#entries>div {
     margin-bottom: 20px;
 }
 
@@ -47,81 +46,86 @@ h1 {
 .first-name {
     margin-right: 20px;
 }
-  
-  .email {
-      display: flex;
-      flex-direction: column;
-  }
-  
-  .password {
-      display: flex;
-      flex-direction: column;
-    }
-    
-    .xmark-icon {
-        display: flex;
-        justify-content: flex-end;
-    }
-  
-    input {
+
+.email {
+    display: flex;
+    flex-direction: column;
+}
+
+.password {
+    display: flex;
+    flex-direction: column;
+}
+
+.xmark-icon {
+    display: flex;
+    justify-content: flex-end;
+}
+
+input {
     border-radius: 8px;
     padding: 10px 16px;
     box-sizing: border-box;
-    height:40px;
+    height: 40px;
     width: 100%;
     border: 1px solid transparent;
     background-color: #f3f3f4;
     outline: none;
 }
 
-input:focus, input:hover {
+input:focus,
+input:hover {
     border: 1px solid #f4642d;
     background-color: white;
 }
-  
+
 button {
     border-radius: 8px;
     padding: 10px 16px;
 }
-  
 
-.newsletter{
-  display:flex;
-  flex-direction:column;
-  border-top: 1px solid gray;
-  border-bottom: 1px solid gray;
-  padding: 20px;
-}
-.newsletter-content{
-  display:flex;
-  justify-content: space-between;
-}
-.newsletter button{
-  margin: 0 auto;
-  display: block;
+
+.newsletter {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
+    padding: 20px;
 }
 
-.sign-out-delete{
+.newsletter-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.newsletter button {
+    margin: 0 auto;
+    display: block;
+}
+
+.sign-out-delete {
     display: flex;
     justify-content: space-between;
     padding: 10px 20px;
 }
 
-.sign-out{
+.sign-out {
     display: flex;
     flex-direction: row;
     align-items: center;
 }
-.api{
+
+.api {
     border-bottom: 1px solid gray;
     padding: 20px;
 }
-.unsub{
+
+.unsub {
     color: #f4642d;
     text-align: right;
 }
 
 .sign-out-link {
-  margin-left: 10px;
-  color: #f4642d;
+    margin-left: 10px;
+    color: #f4642d;
 }

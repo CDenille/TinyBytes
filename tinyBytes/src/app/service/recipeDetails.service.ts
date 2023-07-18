@@ -1,7 +1,7 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
-import { catchError, map } from 'rxjs/operators';
+import { catchError } from 'rxjs/operators';
 import { IHttpError } from '../interface/error';
 import { IRecipeDetails, IInstructions } from '../interface/recipeDetails';
 
@@ -9,7 +9,7 @@ import { IRecipeDetails, IInstructions } from '../interface/recipeDetails';
   providedIn: 'root',
 })
 export class RecipeDetailsService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   recipeDetailsUrl!: string;
   recipeInstructionsUrl!: string;
@@ -18,20 +18,7 @@ export class RecipeDetailsService {
   getRecipeDetails(recipeId: string | null): Observable<IRecipeDetails | IHttpError> {
     return this.http
       .get<IRecipeDetails>(`https://tinybytes-production.up.railway.app/recipeDetails/${recipeId}`)
-      .pipe(
-        // map((details) => {
-        //   let container!: IRecipeDetails;
-        //   container.id = details.id;
-        //   container.title = details.title;
-        //   container.image = details.image;
-        //   container.servings = details.servings;
-        //   container.readyInMinutes = details.readyInMinutes;
-        //   container.summary = details.summary;
-        //   container.extendedIngredients = details.extendedIngredients;
-        // return container;
-      // }),
-        catchError(this.HttpErrorHandler)
-    );
+      .pipe(catchError(this.HttpErrorHandler));
   }
 
   getRecipeInstructions(recipeId: string | null): Observable<IInstructions[] | IHttpError> {
@@ -46,15 +33,14 @@ export class RecipeDetailsService {
       .pipe(catchError(this.HttpErrorHandler))
   }
 
-  private HttpErrorHandler(err: HttpErrorResponse): Observable<IHttpError>{
+  private HttpErrorHandler(err: HttpErrorResponse): Observable<IHttpError> {
     let customError!: IHttpError;
     customError.statusCode = err.status;
     customError.detailedMessage = err.message;
-    customError.statusText = err.statusText; 
+    customError.statusText = err.statusText;
     customError.dataType = err.name;
     customError.componentMessage = err.error;
-    console.log('Error message: ', customError.detailedMessage)
-    return throwError(()=>customError);
+    return throwError(() => customError);
   }
 
 }

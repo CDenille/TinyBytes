@@ -1,44 +1,54 @@
-.main{
+.main {
     display: flex;
     flex-direction: column;
 }
+
 h3 {
     font-family: Georgia, serif;
     font-weight: bold;
 }
-.food-title{
+
+.food-title {
     font-weight: bold;
     font-family: Gill Sans, sans-serif;
 }
-.food-preview{
+
+.food-preview {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
-.img-zoom img{
+
+.img-zoom img {
     transform-origin: 0 0;
     transition: transform .25s, visibility .25s ease-in-out;
 }
+
 .img-zoom:hover img {
     transform: scale(1.1);
-  }
-.img-zoom{
+}
+
+.img-zoom {
     overflow: hidden;
 }
-.card{
+
+.card {
     display: flex;
     flex-direction: column;
 }
-.card:hover{
+
+.card:hover {
     color: #f4642d;
 }
 
-.card-text, .card-text.food-title {
+.card-text,
+.card-text.food-title {
     font-family: sans-serif;
 }
+
 @media screen and (max-width: 500px) {
     .food-preview {
-      flex-direction: column;
-      justify-content: space-between;
+        flex-direction: column;
+        justify-content: space-between;
     }
-  }
+}

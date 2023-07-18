@@ -1,4 +1,4 @@
-import { Component} from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { LocalStorageService } from '../service/local-storage.service';
 
@@ -8,16 +8,16 @@ import { LocalStorageService } from '../service/local-storage.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
-  
+
   constructor(private router: Router) { }
-  
+
   query!: any;
   userID!: any;
   logout: boolean = false;
 
   toggleLogout(): void {
     this.logout = !this.logout;
-  }  
+  }
   goToProfile() {
     this.userID = localStorage.getItem('User ID');
     this.router.navigate(['/profile', this.userID])
@@ -25,7 +25,6 @@ export class HeaderComponent {
 
   startSearch() {
     this.query = ((document.getElementById('form-control me-2') as HTMLInputElement).value);
-    console.log("Query:", this.query);
     this.router.navigate(['/search', this.query])
   }
 }

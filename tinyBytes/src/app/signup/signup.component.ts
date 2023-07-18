@@ -54,9 +54,6 @@ export class SignupComponent {
           });
           let options = { headers: httpHeaders };
           localStorage.setItem('Current User', this.basic);
-          console.log(httpHeaders);
-          console.log(localStorage.getItem('Current User'));
-          console.log("Basic: ", this.basic)
           this.loginService.login(options, this.signupForm.value.email, this.signupForm.value.password);
         }
       });

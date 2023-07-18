@@ -1,10 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { IHttpError } from '../interface/error';
 import { IProfile } from '../interface/profile';
 import { ProfileService } from '../service/profile.service';
-import { HttpClient } from '@angular/common/http';
 import { LocalStorageRefService } from '../service/local-storage-ref.service';
 import { Router } from '@angular/router';
 
@@ -27,7 +24,6 @@ export class ProfileComponent implements OnInit, OnDestroy {
     this.profileSub = this.profileService.getUserData(this.userId).subscribe({
       next: profileData => {
         this.profile = profileData;
-        console.log('Here are is the profile', this.profile);
       },
     });
   }

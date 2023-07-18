@@ -11,10 +11,7 @@
         <i class="fa-brands fa-pinterest-p"></i>
       </div>
       <!--TODO - Implement logic for the favorites' button-->
-      <div
-        (click)="bookmarkRecipe()"
-        *ngIf="userData.favorited; else notFavorited"
-      >
+      <div (click)="bookmarkRecipe()" *ngIf="userData.favorited; else notFavorited">
         <i class="fa-solid fa-bookmark"></i>
       </div>
       <ng-template #notFavorited>
@@ -75,7 +72,7 @@
       </div>
     </div>
     <div style="justify-content:left;" *ngIf="nutrition" class="nutritionContainer" #divNutritionHtml></div>
-    <div class ="reviewListContainer">
+    <div class="reviewListContainer">
       <review></review>
     </div>
   </div>

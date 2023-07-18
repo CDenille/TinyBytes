@@ -1,68 +1,81 @@
-*{
-    font-family: sans-serif;
+* {
+  font-family: sans-serif;
 }
 
-.logo{
-    margin-top: 2%;
-    display: flex;
-    justify-content: center;
+.logo {
+  margin-top: 2%;
+  display: flex;
+  justify-content: center;
 }
 
-hr{
-    background-color: black;
+hr {
+  background-color: black;
 }
+
 #navContainer {
-    margin-top: 0%!important;
-    margin-bottom: 0%;
-}
-.container-fluid{
-    display: flex;
-    justify-content: space-between;
+  margin-top: 0% !important;
+  margin-bottom: 0%;
 }
 
-#navbar-left{
-    width: 55%;
-    display: flex;
-    justify-content: space-between;
+.container-fluid {
+  display: flex;
+  justify-content: space-between;
 }
 
-.fs-3, .uk-icon-button, .uk-navbar-toggle.uk-icon.uk-search-icon {
+#navbar-left {
+  width: 55%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.fs-3,
+.uk-icon-button,
+.uk-navbar-toggle.uk-icon.uk-search-icon {
   color: black;
 }
 
-.fs-3:hover, .uk-icon-button:hover, .uk-navbar-toggle.uk-icon.uk-search-icon:hover {
-  color:#f4642d;
+.fs-3:hover,
+.uk-icon-button:hover,
+.uk-navbar-toggle.uk-icon.uk-search-icon:hover {
+  color: #f4642d;
 }
 
 .active {
   font-weight: bold;
 }
 
-.uk-search-input::placeholder{
+.uk-search-input::placeholder {
   color: #f4642d;
   opacity: .7;
 }
 
-@media screen and (max-width:450px){
-    
-    #navbar-left{
-        flex-direction: row;
-        justify-content: space-around;
-        width: 100%;
-    }
-    a{
-        font-size: 18px!important;
-    }
-    .container-fluid, .uk-background-default {
-        padding: 0;
-    }
-    .uk-search-large .uk-search-input {
-        font-size: 1.5rem;
-    }
-    .container-fluid, .uk-background-default {
-      padding: 0;
-    }
-    .uk-search-large .uk-search-input {
-      font-size: 1.5rem;
-    }
+@media screen and (max-width:450px) {
+
+  #navbar-left {
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+  }
+
+  a {
+    font-size: 18px !important;
+  }
+
+  .container-fluid,
+  .uk-background-default {
+    padding: 0;
+  }
+
+  .uk-search-large .uk-search-input {
+    font-size: 1.5rem;
+  }
+
+  .container-fluid,
+  .uk-background-default {
+    padding: 0;
+  }
+
+  .uk-search-large .uk-search-input {
+    font-size: 1.5rem;
+  }
 }

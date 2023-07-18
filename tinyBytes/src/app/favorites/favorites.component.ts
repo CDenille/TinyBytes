@@ -10,7 +10,7 @@ export class FavoritesComponent implements OnInit {
   constructor(
     private favoritesService: FavoritesService,
     private localStorage: LocalStorageRefService
-  ) {}
+  ) { }
 
   favorites!: any[];
 

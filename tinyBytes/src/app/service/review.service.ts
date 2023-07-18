@@ -3,10 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { IHttpError } from '../interface/error';
-import { Review } from '../review';
-import { ReviewInter } from '../interface/review';
 import { LocalStorageRefService } from '../service/local-storage-ref.service'
-import { RecipeComponent } from '../recipe/recipe.component';
 
 @Injectable({
   providedIn: 'root',
@@ -14,7 +11,7 @@ import { RecipeComponent } from '../recipe/recipe.component';
 
 export class ReviewService {
   constructor(private http: HttpClient,
-  private localStorage: LocalStorageRefService) { }
+    private localStorage: LocalStorageRefService) { }
   recipe_id!: any;
   recipeName!: any;
   userName!: any;
@@ -40,10 +37,10 @@ export class ReviewService {
       .pipe(catchError(this.HttpErrorHandler))
   }
 
-  sendReview(): Observable<any>{
+  sendReview(): Observable<any> {
     this.yourIcon = this.randomize(this.icons);
     this.recipe_id = Number(localStorage.getItem('recipeId'))
-    this.recipeName= localStorage.getItem('recipeName')
+    this.recipeName = localStorage.getItem('recipeName')
     this.userName = ((document.getElementById('form-control me-2 userName') as HTMLInputElement).value);
     this.review = ((document.getElementById('form-control me-2 review') as HTMLInputElement).value);
 
@@ -54,10 +51,8 @@ export class ReviewService {
       recipeName: this.recipeName,
       image: this.yourIcon
     }
-    console.log("THe json", newReview)
-    console.log("Posting to recipe id", this.recipe_id)
     return this.http.post<any>(`https://tinybytes-production.up.railway.app/recipe/reviews`, newReview)
-      
+
   }
 
   private HttpErrorHandler(err: HttpErrorResponse): Observable<IHttpError> {

@@ -9,7 +9,7 @@ import { IHttpError } from '../interface/error';
 })
 
 export class FavoritesService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   getFavorites(userId: string | null): Observable<any> {
     return this.http

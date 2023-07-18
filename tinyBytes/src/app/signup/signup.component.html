@@ -8,42 +8,49 @@
         <div class="full-name">
           <div class="first-name">
             <label>First Name</label>
-            <input type="text" name="first" min=2 pattern="[a-zA-Z]+" required formControlName="firstName"/>
-            <div class="alert alert-danger" role="alert" *ngIf="signupForm.controls['firstName'].errors && signupForm.controls['firstName'].touched">              
+            <input type="text" name="first" min=2 pattern="[a-zA-Z]+" required formControlName="firstName" />
+            <div class="alert alert-danger" role="alert"
+              *ngIf="signupForm.controls['firstName'].errors && signupForm.controls['firstName'].touched">
               First Name can only contain letters
             </div>
           </div>
           <div class="last-name">
             <label>Last Name</label>
-            <input type="text" name="last" min=2 pattern="[a-zA-Z]+" required formControlName="lastName"/>
-            <div class="alert alert-danger" role="alert" *ngIf="signupForm.controls['lastName'].errors && signupForm.controls['lastName'].touched">              
+            <input type="text" name="last" min=2 pattern="[a-zA-Z]+" required formControlName="lastName" />
+            <div class="alert alert-danger" role="alert"
+              *ngIf="signupForm.controls['lastName'].errors && signupForm.controls['lastName'].touched">
               Last Name can only contain letters
             </div>
           </div>
         </div>
         <div class="email">
           <label><i class="fa-regular fa-envelope"></i> Email</label>
-          <input type="email" name="email" required formControlName="email"/>
-          <div class="alert alert-danger" role="alert" *ngIf="signupForm.controls['email'].errors && signupForm.controls['email'].touched">              
+          <input type="email" name="email" required formControlName="email" />
+          <div class="alert alert-danger" role="alert"
+            *ngIf="signupForm.controls['email'].errors && signupForm.controls['email'].touched">
             Email cannot be blank and must be an email
           </div>
         </div>
         <div class="password">
           <label><i class="fa-solid fa-lock"></i> Password</label>
-          <input type="password" name="password" placeholder="6+ characters" min=6 required formControlName="password" />
-          <div class="alert alert-danger" role="alert" *ngIf="signupForm.controls['password'].errors && signupForm.controls['password'].touched">              
+          <input type="password" name="password" placeholder="6+ characters" min=6 required
+            formControlName="password" />
+          <div class="alert alert-danger" role="alert"
+            *ngIf="signupForm.controls['password'].errors && signupForm.controls['password'].touched">
             Password must be at least 6 chars long
           </div>
         </div>
       </div>
       <div class="terms">
-        <input type="checkbox" name="agreement" required >
-        Creating an account means you're okay with our <span>Terms of Service, Privacy Policy,</span> and our default <span>Notification Settings</span>.
-      </div>  
+        <input type="checkbox" name="agreement" required>
+        Creating an account means you're okay with our <span>Terms of Service, Privacy Policy,</span> and our default
+        <span>Notification Settings</span>.
+      </div>
       <button type="submit" (click)="submit()">Create Account</button>
     </form>
     <p class="policies">
-      This site is protected by reCAPTCHA and the Google <span>Privacy Policy</span> and <span>Terms of Service</span> apply.
+      This site is protected by reCAPTCHA and the Google <span>Privacy Policy</span> and <span>Terms of Service</span>
+      apply.
     </p>
   </div>
 </div>

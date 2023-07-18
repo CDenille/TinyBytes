@@ -6,8 +6,7 @@ export interface IRecipeDetails {
   image: string;
   servings: number;
   readyInMinutes: number;
-  summary: string; //Needs to be parsed
-  // instructions: string; //Needs to be parsed or use other api address  //some recipeids have this property but its empty
+  summary: string;
   extendedIngredients: IIngredients[];
   //Stretch goals, would include if vegan, vegetarian, etc based on icon.
   dairyFree: boolean;

@@ -1,69 +1,82 @@
-.uk-search-input::placeholder{
+.uk-search-input::placeholder {
   color: #f4642d;
   opacity: .8;
 }
-.container-fluid uk-background-default{
+
+.container-fluid uk-background-default {
   width: 100%;
 }
-.cardTitle{
+
+.cardTitle {
   background-color: white;
   outline-style: none;
   margin-bottom: 0px;
 }
-h3{
+
+h3 {
   font-weight: bold;
   margin-bottom: 0px;
 }
-.cardContainer:hover{
-  -ms-transform: scale(1.1); /* IE 9 */
-  -webkit-transform: scale(1.1); /* Safari 3-8 */
+
+.cardContainer:hover {
+  -ms-transform: scale(1.1);
+  /* IE 9 */
+  -webkit-transform: scale(1.1);
+  /* Safari 3-8 */
   transform: scale(1.1);
   transition: 1s ease;
-  color:#f4642d;
+  color: #f4642d;
 }
-#cardContainer{
+
+#cardContainer {
   display: flex;
   flex-direction: row;
   width: 100%;
   margin-bottom: 30px;
 }
-#cardContainerLeft{
+
+#cardContainerLeft {
   width: 100px;
   height: 100px;
   margin-right: 20px;
 }
-#cardContainerRight{
+
+#cardContainerRight {
   display: flex;
   flex-direction: column;
 }
-.reviewCard{
+
+.reviewCard {
   margin-bottom: 0px;
 }
-.uk-navbar-toggle{
-  color:#f4642d;
+
+.uk-navbar-toggle {
+  color: #f4642d;
 }
-#reviewCard{
+
+#reviewCard {
   display: flex;
   flex-direction: column;
 }
-.nav-overlay-review uk-navbar-right{
+
+.nav-overlay-review uk-navbar-right {
   width: 100%;
   justify-content: end;
   height: 50px;
 }
 
-#writeaReview{
+#writeaReview {
   align-items: start;
   justify-content: end;
-  width:100%;
+  width: 100%;
   padding-bottom: 0%;
   padding-top: 0%;
-  color:#f4642d;
+  color: #f4642d;
   font-size: medium
 }
 
-#submitButton{
-  color:whitesmoke;
+#submitButton {
+  color: whitesmoke;
   border-style: none;
   width: 150px;
   min-height: 40px;

@@ -9,12 +9,12 @@ import { LoginService } from '../service/login.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  
+
   constructor(
     private loginService: LoginService,
-    private localStorage: LocalStorageRefService) {}
+    private localStorage: LocalStorageRefService) { }
 
-  email! : string;
+  email!: string;
   password!: string;
   credentials!: string;
   basic!: string;
@@ -22,8 +22,6 @@ export class LoginComponent {
 
   //alerts
   usernamePasswordError: boolean = false;
-
-  @ViewChild('#divsignIn') divsignInRef!: ElementRef;
 
   ngOnInit() {
     this.localStorage.localStorage.clear();
@@ -40,9 +38,6 @@ export class LoginComponent {
     });
     let options = { headers: httpHeaders };
     localStorage.setItem('Current User', this.basic);
-    console.log(httpHeaders);
-    console.log(localStorage.getItem('Current User'));
-    console.log("Basic: ",this.basic)
     this.loginService.login(options, this.email, this.password);
   }
 }

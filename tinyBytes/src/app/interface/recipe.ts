@@ -1,4 +1,4 @@
-export interface IRecipe{
+export interface IRecipe {
   id: number
   title: string
   calories: number

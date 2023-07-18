@@ -30,7 +30,7 @@ section {
   margin: 10px 0;
 }
 
-.url-code{
+.url-code {
   display: flex;
 }
 
@@ -43,15 +43,14 @@ section {
   justify-content: space-between;
 }
 
-.method{
+.method {
   color: #f4642d;
   margin: 0 20px 0 10px;
 }
 
-.api-button{
+.api-button {
   background-color: #f4642d;
   color: whitesmoke;
   border-radius: 8px;
   border-style: none;
 }
-

@@ -3,16 +3,18 @@ html {
   max-width: 80%;
   margin: auto;
   justify-self: center;
-  font-family: Trebuchet MS, sans-serif!important;
+  font-family: Trebuchet MS, sans-serif !important;
 }
-@media screen and (max-width:450px){
-  html{
+
+@media screen and (max-width:450px) {
+  html {
     max-width: 80%;
     margin: auto;
   }
 }
-@media screen and (max-width:1024px){
-  html{
+
+@media screen and (max-width:1024px) {
+  html {
     max-width: 80%;
     margin: auto;
   }

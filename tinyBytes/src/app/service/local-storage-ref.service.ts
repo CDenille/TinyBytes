@@ -1,12 +1,12 @@
 import { Injectable } from "@angular/core";
 
 function getLocalStorage(): Storage {
-    return localStorage;
+  return localStorage;
+}
+
+@Injectable({ providedIn: "root" })
+export class LocalStorageRefService {
+  get localStorage(): Storage {
+    return getLocalStorage();
   }
-  
-  @Injectable({ providedIn: "root" })
-  export class LocalStorageRefService {
-    get localStorage(): Storage {
-      return getLocalStorage();
-    }
-  }
+}

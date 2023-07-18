@@ -3,5 +3,5 @@ export interface IHttpError {
   detailedMessage: string;
   statusCode: number;
   statusText: string;
-  dataType: string; 
+  dataType: string;
 }

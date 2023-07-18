@@ -1,43 +1,48 @@
 <section>
-<div uk-sticky="sel-target: .uk-review-container; cls-active: uk-navbar-sticky">
-  <nav id="reviewContainer" class="uk-review-container uk-margin " uk-navbar>
-    <div class="container-fluid uk-background-default" >
+  <div uk-sticky="sel-target: .uk-review-container; cls-active: uk-navbar-sticky">
+    <nav id="reviewContainer" class="uk-review-container uk-margin " uk-navbar>
+      <div class="container-fluid uk-background-default">
 
-      <div id="navbar-left-review" class="nav-overlay-review uk-navbar-left">
-        <div class="card-deck w-100">
-          
-          <div id="reviewCard" class="row .h-100">
-            <div class="cardTitle">
-             <h3>Reviews</h3>
-            </div>
-            <div class="nav-overlay-review uk-navbar-right">
-              <p id="writeaReview" class="uk-navbar-toggle" uk-toggle="target: .nav-overlay-review; animation: uk-animation-fade">Write a Review</p>
-            </div>
-              <div id="cardContainer"*ngFor="let review of reviews.data" class="card" style="border: none;"> 
+        <div id="navbar-left-review" class="nav-overlay-review uk-navbar-left">
+          <div class="card-deck w-100">
+
+            <div id="reviewCard" class="row .h-100">
+              <div class="cardTitle">
+                <h3>Reviews</h3>
+              </div>
+              <div class="nav-overlay-review uk-navbar-right">
+                <p id="writeaReview" class="uk-navbar-toggle"
+                  uk-toggle="target: .nav-overlay-review; animation: uk-animation-fade">Write a Review</p>
+              </div>
+              <div id="cardContainer" *ngFor="let review of reviews.data" class="card" style="border: none;">
                 <div id="cardContainerLeft">
-                  <img src = "{{review.image}}" width="100%" height="100%"> 
+                  <img src="{{review.image}}" width="100%" height="100%">
                 </div>
                 <div id="cardContainerRight">
-                  <p class= "reviewCard" style="margin-top:0px;">{{review.review}}</p> 
-                  <p style="margin-top:5px;">{{review.userName}}</p> 
+                  <p class="reviewCard" style="margin-top:0px;">{{review.review}}</p>
+                  <p style="margin-top:5px;">{{review.userName}}</p>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="nav-overlay-review uk-navbar-left uk-flex-1" hidden>
+          <div class="uk-navbar-item uk-width-expand">
+            <form class="uk-search uk-search-default uk-width-1-1">
+              <input id="form-control me-2 userName" class="uk-search-input uk-text-large" type="text"
+                placeholder="Username" autofocus>
+              <input id="form-control me-2 review" class="uk-search-input uk-text-large" type="text"
+                placeholder="Review" autofocus>
+              <div>
+                <button id="submitButton" class="uk-navbar-toggle uk-button-small"
+                  uk-toggle="target: .nav-overlay-review; animation: uk-animation-fade" (click)="Review()">Submit
+                  Review</button>
+              </div>
+            </form>
           </div>
         </div>
       </div>
-
-      <div class="nav-overlay-review uk-navbar-left uk-flex-1" hidden>
-        <div class="uk-navbar-item uk-width-expand">
-          <form class="uk-search uk-search-default uk-width-1-1">
-            <input id="form-control me-2 userName" class="uk-search-input uk-text-large" type="text" placeholder="Username" autofocus>
-            <input id="form-control me-2 review" class="uk-search-input uk-text-large" type="text" placeholder="Review" autofocus>
-            <div>
-              <button id="submitButton" class="uk-navbar-toggle uk-button-small" uk-toggle="target: .nav-overlay-review; animation: uk-animation-fade" (click)="Review()">Submit Review</button>
-            </div>
-        </form>
-        </div>
-      </div>
-    </div>
-  </nav> 
+    </nav>
   </div>
 </section>

@@ -20,7 +20,6 @@ export class FavoritesComponent implements OnInit {
     //Subscriptions
     this.favoritesService.getFavorites(userId).subscribe({
       next: (data) => {
-        console.log(data.data);
         this.favorites = data.data;
       },
     });

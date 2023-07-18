@@ -56,6 +56,10 @@ export class ReviewComponent implements OnInit {
 
   ngOnDestroy() {
     this.reviewSub.unsubscribe();
-    this.sendReviewSub.unsubscribe();
+    // can be undefined if a new review isn't posted
+    // and cause navigation error
+    if(this.sendReviewSub != null) {
+      this.sendReviewSub.unsubscribe();
+    }
   }
 }

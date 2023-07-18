@@ -72,7 +72,8 @@ h3 {
   padding-bottom: 0%;
   padding-top: 0%;
   color: #f4642d;
-  font-size: medium
+  font-size: medium;
+  margin-bottom: 0px;
 }
 
 #submitButton {

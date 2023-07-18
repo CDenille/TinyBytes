@@ -4,6 +4,7 @@ import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { IProfile } from '../interface/profile';
 import { LocalStorageService } from '../service/local-storage.service';
+import { Router } from '@angular/router';
 
 
 @Injectable({
@@ -11,7 +12,8 @@ import { LocalStorageService } from '../service/local-storage.service';
 })
 export class ProfileService {
   constructor(
-    private http: HttpClient) { }
+    private http: HttpClient,
+    private router: Router) { }
 
   getUserData(userId: string | null): Observable<IProfile> {
     let thisUser = localStorage.getItem('Current User')
@@ -19,11 +21,11 @@ export class ProfileService {
     const httpHeaders = new HttpHeaders({
       'Content-Type': 'application/json; charset=utf-8',
       'Access-Control-Allow-Headers': 'Content-Type',
-    'Authorization': `${thisUser}`
+      'Authorization': `${thisUser}`
     });
     return this.http
-      .get<IProfile>(`https://tinybytes-production.up.railway.app/profile/${userID}`, {headers:httpHeaders})
-      .pipe(catchError(this.HttpErrorHandler));
+        .get<IProfile>(`https://tinybytes-production.up.railway.app/profile/${userID}`, { headers: httpHeaders })
+        .pipe(catchError(this.HttpErrorHandler));
   }
 
   getApiKey(email: string): Observable<any> {
@@ -31,10 +33,10 @@ export class ProfileService {
     const httpHeaders = new HttpHeaders({
       'Content-Type': 'application/json; charset=utf-8',
       'Access-Control-Allow-Headers': 'Content-Type',
-    'Authorization': `${thisUser}`
+      'Authorization': `${thisUser}`
     });
     return this.http
-      .put<any>(`https://tinybytes-production.up.railway.app/profile/generateApi`, {email: email}, {headers:httpHeaders})
+      .put<any>(`https://tinybytes-production.up.railway.app/profile/generateApi`, { email: email }, { headers: httpHeaders })
       .pipe(catchError(this.HttpErrorHandler));
   }
 
@@ -44,14 +46,14 @@ export class ProfileService {
     const httpHeaders = new HttpHeaders({
       'Content-Type': 'application/json; charset=utf-8',
       'Access-Control-Allow-Headers': 'Content-Type',
-    'Authorization': `${thisUser}`
+      'Authorization': `${thisUser}`
     });
     localStorage.clear();
     return this.http
-      .delete<any>(`https://tinybytes-production.up.railway.app/profile/${userID}`, {headers:httpHeaders});
+      .delete<any>(`https://tinybytes-production.up.railway.app/profile/${userID}`, { headers: httpHeaders });
   }
 
-  private HttpErrorHandler(err: HttpErrorResponse){
+  private HttpErrorHandler(err: HttpErrorResponse) {
     console.log(err)
     return throwError(() => err);
   }

@@ -1,24 +1,23 @@
 const PORT = 8080;
 const router = require('express').Router();
-const {User} = require('../db/associations');
+const { User } = require('../db/associations');
 const basicAuth = require('express-basic-auth');
-const auth = require ('../routes/auth')
+const auth = require('../routes/auth')
 
 router.use(basicAuth({
-    authorizer : auth,
-    authorizeAsync: true,
-    challenge: true,
-    realm: 'foo',
-    unauthorizedResponse : () => "You do not have access to this content. Please log in"
+  authorizer: auth,
+  authorizeAsync: true,
+  challenge: true,
+  realm: 'foo',
+  unauthorizedResponse: () => "You do not have access to this content. Please log in"
 }))
 
-router.put('/generateApi',async (req,res)=>{
+router.put('/generateApi', async (req, res) => {
   const email = req.body.email
   try {
-    const user = await User.findOne({where: {email: email}});
+    const user = await User.findOne({ where: { email: email } });
     const key = `APIKEY${user.id}`
-    user.update({apiKey:key,developer:1})
-    console.log('API key added ', key)
+    user.update({ apiKey: key, developer: 1 })
     res.sendStatus(200)
   } catch (error) {
     console.log(error)
@@ -57,7 +56,7 @@ router.post('/:userId', async (req, res) => {
         email: req.body.email,
       });
       if (req.body.password) {
-        user.set({password: req.body.password});
+        user.set({ password: req.body.password });
       }
       res.status(200).send(`Profile information was successfully updated for ${req.body.firstName} ${req.body.lastName}.`);
     } else {
@@ -71,11 +70,9 @@ router.post('/:userId', async (req, res) => {
 //delete User profile
 router.delete('/:userId', async (req, res) => {
   let id = req.params.userId
-  console.log('Heres the id', id);
   let userToDelete = await User.findByPk(id)
-  console.log(userToDelete)
-    await userToDelete.destroy()
-    res.send('User deleted')
+  await userToDelete.destroy()
+  res.send('User deleted')
 })
 
 module.exports = router;

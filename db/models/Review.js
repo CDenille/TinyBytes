@@ -1,9 +1,7 @@
 const db = require('../db');
 const { Model, DataTypes } = require('sequelize');
 
-class Review extends Model {
-  // add methods here
-}
+class Review extends Model {}
 
 Review.init(
   {

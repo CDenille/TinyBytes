@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const {db, User, Recipe} = require('../db/associations');
+const { db, User, Recipe } = require('../db/associations');
 const { QueryTypes } = require('sequelize');
 const basicAuth = require('express-basic-auth');
 const auth = require('../routes/auth')
@@ -9,7 +9,7 @@ router.get('/topRecipies/:apiKey', async (req, res) => {
   const apiKey = req.params.apiKey;
   try {
     //Do we want to hash the apiKeys?
-    const user = await User.findOne({where: {apiKey: apiKey}});
+    const user = await User.findOne({ where: { apiKey: apiKey } });
     //Could potentially save the api call to keep track of how many requests the user made and implement a cap
     if (user) {
       const query = `SELECT Recipes.recipeId, Recipes.name, COUNT(Favorites.RecipeRecipeId) as Favorite_Count
@@ -19,7 +19,7 @@ router.get('/topRecipies/:apiKey', async (req, res) => {
                       ORDER BY COUNT(Favorites.RecipeRecipeId ) 
                       DESC 
                       LIMIT 5`;
-      const topRecipes = await db.query(query, {type: QueryTypes.SELECT});
+      const topRecipes = await db.query(query, { type: QueryTypes.SELECT });
       res.status(200).json(topRecipes);
     } else {
       res.status(401).send(`Unauthorized request, Api Key: ${apiKey} is NOT Valid.`);
@@ -33,7 +33,7 @@ router.get('/topRecipies/:apiKey', async (req, res) => {
 router.get('/latestFavorited/:apiKey', async (req, res) => {
   const apiKey = req.params.apiKey;
   try {
-    const user = await User.findOne({where: {apiKey: apiKey}});
+    const user = await User.findOne({ where: { apiKey: apiKey } });
     if (user) {
       const rawDate = new Date();
       const daysBack = 7;
@@ -45,7 +45,7 @@ router.get('/latestFavorited/:apiKey', async (req, res) => {
                       WHERE Favorites.createdAt >= ${date}
                       ORDER BY Favorites.createdAt
                       DESC`;
-      const latestAndGreatest = await db.query(query, {type: QueryTypes.SELECT});
+      const latestAndGreatest = await db.query(query, { type: QueryTypes.SELECT });
       res.status(200).json(latestAndGreatest);
     } else {
       res.status(401).send(`Unauthorized request, Api Key: ${apiKey} is NOT Valid.`);
@@ -59,7 +59,7 @@ router.get('/latestFavorited/:apiKey', async (req, res) => {
 router.get('/lastTenFavorites/:apiKey', async (req, res) => {
   const apiKey = req.params.apiKey;
   try {
-    const user = await User.findOne({where: {apiKey: apiKey}});
+    const user = await User.findOne({ where: { apiKey: apiKey } });
     if (user) {
       const query = `SELECT Recipes.recipeId, Recipes.name, Favorites.createdAt
                       FROM Favorites
@@ -67,7 +67,7 @@ router.get('/lastTenFavorites/:apiKey', async (req, res) => {
                       ORDER BY Favorites.createdAt
                       DESC
                       LIMIT 10`;
-      const lastTenFavorites = await db.query(query, {type: QueryTypes.SELECT});
+      const lastTenFavorites = await db.query(query, { type: QueryTypes.SELECT });
       res.status(200).json(lastTenFavorites);
     } else {
       res.status(401).send(`Unauthorized request, Api Key: ${apiKey} is NOT Valid.`);

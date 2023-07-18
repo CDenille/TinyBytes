@@ -78,8 +78,6 @@ const generateData = async () => {
   // //Create relationships between individual model data
   await matchUserWithRecipes();
   await matchRecipesWithReviews();
-
-  console.log('Database seeded!');
 };
 
 generateData();

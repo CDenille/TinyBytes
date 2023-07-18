@@ -13,13 +13,13 @@ app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
 //api keys
-// apiKey = 'a42bca2f8c2f4c5194cd8aa86c365de7';
+apiKey = 'a42bca2f8c2f4c5194cd8aa86c365de7';
 // apiKey = 'b989a147ccb6450e920e8fa5355c632c';
 // apiKey = 'dd0d974a8e534716a3175c56ecd0bde5';
 // apiKey = '0550322f781e49199dd00666b1933e64';
 // apiKey = 'b989a147ccb6450e920e8fa5355c632c';
 // apiKey = 'f082f3f33d8e400b8898966f7fcbc069';
-apiKey = 'b688d3dfcaec47b88ffd7cd4de8c743b';
+// apiKey = 'b688d3dfcaec47b88ffd7cd4de8c743b';
 
 
 // These routes calls the spoonacular api and renders
@@ -29,7 +29,6 @@ app.use("/", require("./routes"));
 
 app.post("/logIn", async (req, res) => {
   try {
-    console.log("in log in route");
     res.send(await User.authenticate(req.body));
   } catch (error) {
     if (error.status === 401) res.sendStatus(401);

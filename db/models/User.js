@@ -1,4 +1,3 @@
-//imports here
 const bcrypt = require('bcrypt');
 const db = require('../db');
 const {Model, DataTypes} = require('sequelize');
@@ -40,7 +39,6 @@ const User = db.define("user", {
     defaultValue: 0,
     allowNull: false,
   },
-  // maybe set up uuid for api key???
   apiKey: {
     type: DataTypes.STRING,
     unique: true,
@@ -56,7 +54,6 @@ User.prototype.correctPassword =function(currentPw){
 }
 
 User.authenticate = async function ({ email, password }) {
-  console.log("in user.authenticate");
   const user = await this.findOne({ where: { email } });
   if (!user || !(await user.correctPassword(password))) {
     const error = Error("Incorrect email/password");

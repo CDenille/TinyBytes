@@ -10,16 +10,16 @@ const sendResponse = (req, res) => {
     const status = 200
     const response = {
         message: `Success`,
-        status, 
+        status,
     }
 
     if (req.data) {
-        response.data = req.data 
+        response.data = req.data
     }
 
     res
-    .status(status)
-    .json(response)
+        .status(status)
+        .json(response)
 }
 
 const handleError = (error, req, res, next) => {
@@ -32,36 +32,34 @@ const handleError = (error, req, res, next) => {
     }
 
     res
-    .status(status)
-    .json(response)
+        .status(status)
+        .json(response)
 }
 
-const findAllReviews = async (req, res, next)=> {
+const findAllReviews = async (req, res, next) => {
     const recipeId = req.params.recipeId;
     const query = `SELECT Reviews.userName, Reviews.review, Reviews.image
                     FROM Reviews
                     JOIN Recipes on Recipes.recipeId = Reviews.recipe_id
                     WHERE Reviews.recipe_id=(?);`
-    
+
     db.all(query, [recipeId], (error, rows) => {
         if (error) next(error)
         req.data = rows;
         next()
     })
 }
-  
+
 router.get('/:recipeId/reviews', findAllReviews, sendResponse)
 
 router.post('/reviews', async (req, res) => {
     try {
-        let newRecipe  = await Recipe.findOrCreate({where:{name: req.body.recipeName, recipeId: req.body.recipe_id}})
-        let newReview = await Review.create({ recipe_id:req.body.recipe_id, userName:req.body.userName, review:req.body.review, image:req.body.image });
-        console.log('New Recipe: ', newRecipe.recipeId, ' ', newRecipe.name)
-        console.log('New Review Post: ', newReview.review)
-      res.status(200).send({newReview});
-       
+        let newRecipe = await Recipe.findOrCreate({ where: { name: req.body.recipeName, recipeId: req.body.recipe_id } })
+        let newReview = await Review.create({ recipe_id: req.body.recipe_id, userName: req.body.userName, review: req.body.review, image: req.body.image });
+        res.status(200).send({ newReview });
+
     } catch (error) {
-      res.status(500).send(`Could not add the review. This is due to the following server error: ${error}`);
+        res.status(500).send(`Could not add the review. This is due to the following server error: ${error}`);
     }
 });
 module.exports = router

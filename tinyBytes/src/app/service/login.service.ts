@@ -20,7 +20,7 @@ export class LoginService {
 
     userID!: string;
 
-    login(options: any, email: string, password: string): void {
+    login(options: any, email: string, password: string): boolean {
         const requestObservable: Observable<any> = this.http.post<any>(
             'https://tinybytes-production.up.railway.app/logIn',
             {
@@ -32,7 +32,7 @@ export class LoginService {
             next: (response: any) => {
                 console.log("Here's the data", response)
                 if (response.status == 401) {
-                    this.usernamePasswordError = true
+                    this.usernamePasswordError = true;
                 } else {
                     this.userID = response.id
                     localStorage.setItem('User ID', this.userID);
@@ -41,6 +41,7 @@ export class LoginService {
                 }
             }
         })
+        return this.usernamePasswordError;
     }
 
     httpErrorHandler(err: HttpErrorResponse): Observable<any> {

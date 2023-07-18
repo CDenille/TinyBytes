@@ -38,6 +38,6 @@ export class LoginComponent {
     });
     let options = { headers: httpHeaders };
     localStorage.setItem('Current User', this.basic);
-    this.loginService.login(options, this.email, this.password);
+    this.usernamePasswordError = this.loginService.login(options, this.email, this.password);
   }
 }

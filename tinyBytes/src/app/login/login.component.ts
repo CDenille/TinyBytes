@@ -25,6 +25,7 @@ export class LoginComponent {
 
   ngOnInit() {
     this.localStorage.localStorage.clear();
+    this.loginService.setAlertValue(false);
   }
 
   login() {
@@ -38,6 +39,9 @@ export class LoginComponent {
     });
     let options = { headers: httpHeaders };
     localStorage.setItem('Current User', this.basic);
-    this.usernamePasswordError = this.loginService.login(options, this.email, this.password);
-  }
+    this.loginService.login(options, this.email, this.password);
+    this.loginService.getAlertValue().subscribe((value) => {
+      this.usernamePasswordError = value;
+    });
+  }  
 }

@@ -17,11 +17,10 @@ export class SignupComponent {
     private formBuilder: UntypedFormBuilder,
     private router: Router,
     private http: HttpClient,
+    private loginService: LoginService,
     private localStorage: LocalStorageRefService) { }
 
-
   private enrollmentService: EnrollmentService = new EnrollmentService(this.http);
-  private loginService: LoginService = new LoginService(this.router, this.http, this.localStorage);
 
   newUser!: IUser;
   email!: string;

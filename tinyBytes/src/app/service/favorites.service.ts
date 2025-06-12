@@ -13,7 +13,7 @@ export class FavoritesService {
 
   getFavorites(userId: string | null): Observable<any> {
     return this.http
-      .get<any>(`https://tinybytes-production.up.railway.app/user/${userId}/favorites`)
+      .get<any>(`https://tinybytes.onrender.com/user/${userId}/favorites`)
       .pipe(catchError(this.HttpErrorHandler))
   }
 

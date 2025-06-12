@@ -17,19 +17,19 @@ export class RecipeDetailsService {
 
   getRecipeDetails(recipeId: string | null): Observable<IRecipeDetails | IHttpError> {
     return this.http
-      .get<IRecipeDetails>(`https://tinybytes-production.up.railway.app/recipeDetails/${recipeId}`)
+      .get<IRecipeDetails>(`https://tinybytes.onrender.com/recipeDetails/${recipeId}`)
       .pipe(catchError(this.HttpErrorHandler));
   }
 
   getRecipeInstructions(recipeId: string | null): Observable<IInstructions[] | IHttpError> {
     return this.http
-      .get<IInstructions[]>(`https://tinybytes-production.up.railway.app/recipeInstructions/${recipeId}`)
+      .get<IInstructions[]>(`https://tinybytes.onrender.com/recipeInstructions/${recipeId}`)
       .pipe(catchError(this.HttpErrorHandler))
   }
 
   getHTMLNutritionFacts(recipeId: string | null): Observable<string | IHttpError> {
     return this.http
-      .get(`https://tinybytes-production.up.railway.app/HTMLNutritionFacts/${recipeId}`, { responseType: 'text' })
+      .get(`https://tinybytes.onrender.com/HTMLNutritionFacts/${recipeId}`, { responseType: 'text' })
       .pipe(catchError(this.HttpErrorHandler))
   }
 

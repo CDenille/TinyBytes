@@ -11,19 +11,19 @@ export class RecipeService {
     constructor(private http: HttpClient) { }
 
     getRecipes(): Observable<Root> {
-        return this.http.get<Root>('https://tinybytes-production.up.railway.app/randomRecipe').pipe
+        return this.http.get<Root>('https://tinybytes.onrender.com/randomRecipe').pipe
             (catchError(this.handleError)
             )
     }
 
     getDesserts(): Observable<Root> {
-        return this.http.get<Root>('https://tinybytes-production.up.railway.app/dessertRecipe').pipe
+        return this.http.get<Root>('https://tinybytes.onrender.com/dessertRecipe').pipe
             (catchError(this.handleError)
             )
     }
 
     getMostPopular(): Observable<Root> {
-        return this.http.get<Root>('https://tinybytes-production.up.railway.app/popularRecipe').pipe
+        return this.http.get<Root>('https://tinybytes.onrender.com/popularRecipe').pipe
             (catchError(this.handleError)
             )
     }
@@ -36,7 +36,7 @@ export class RecipeService {
             'Access-Control-Allow-Headers': 'Content-Type',
             'Authorization': `${thisUser}`
         });
-        const url = `https://tinybytes-production.up.railway.app/user/${userId}/favorites?userId=${userId}&recipeId=${recipeId}`;
+        const url = `https://tinybytes.onrender.com/user/${userId}/favorites?userId=${userId}&recipeId=${recipeId}`;
         return this.http.post<ArrayBuffer>(url, { name: foodName }).pipe
             (catchError(this.handleError)
             )
@@ -50,7 +50,7 @@ export class RecipeService {
             'Access-Control-Allow-Headers': 'Content-Type',
             'Authorization': `${thisUser}`
         });
-        const url = `https://tinybytes-production.up.railway.app/user/${userId}/favorites?userId=${userId}&recipeId=${recipeId}`;
+        const url = `https://tinybytes.onrender.com/user/${userId}/favorites?userId=${userId}&recipeId=${recipeId}`;
         return this.http.delete<ArrayBuffer>(url).pipe
             (catchError(this.handleError)
             )

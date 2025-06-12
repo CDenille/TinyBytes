@@ -51,7 +51,7 @@ export class ReviewService {
       recipeName: this.recipeName,
       image: this.yourIcon
     }
-    return this.http.post<any>(`https://tinybytes-production.up.railway.app/recipe/reviews`, newReview)
+    return this.http.post<any>(`https://tinybytes.onrender.com/recipe/reviews`, newReview)
 
   }
 

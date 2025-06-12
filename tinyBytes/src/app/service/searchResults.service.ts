@@ -12,7 +12,7 @@ export class SearchService {
     constructor(private http: HttpClient) { }
 
     search(query: string): Observable<ISearchResults> {
-        return this.http.get<ISearchResults>(`https://tinybytes-production.up.railway.app/search/${query}`).pipe(
+        return this.http.get<ISearchResults>(`https://tinybytes.onrender.com/search/${query}`).pipe(
             catchError(this.handleError)
         )
     }

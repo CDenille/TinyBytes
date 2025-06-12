@@ -9,8 +9,10 @@ Recipe.init(
       type: DataTypes.INTEGER,
       primaryKey: true
     },
-    name: DataTypes.STRING,
-    allowNull: false
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false,  // <-- here, inside the column config
+    },
   },
   {
     sequelize: db,

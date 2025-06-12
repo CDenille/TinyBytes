@@ -1,5 +1,5 @@
-const { Sequelize } = require('sequelize');
 require('dotenv').config(); 
+const { Sequelize } = require('sequelize');
 
 // Create Sequelize instance with Postgres
 const db = new Sequelize(process.env.DATABASE_URL, {
@@ -10,7 +10,7 @@ const db = new Sequelize(process.env.DATABASE_URL, {
       rejectUnauthorized: false, // Important for Neon
     },
   },
-  logging: false, // Turn off SQL query logging
+  logging: console.log, // Turn off SQL query logging
 });
 
 const connection = async () => {

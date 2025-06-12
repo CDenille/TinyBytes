@@ -11,7 +11,7 @@ const seedUser = async () => {
   const buffer = await fs.readFile(seedPath);
   const users = JSON.parse(String(buffer));
 
-  users.forEach(async (user) => await User.create(user));
+  return Promise.all(users.map(user => User.create(user)));
 };
 
 const seedRecipe = async () => {
@@ -19,7 +19,7 @@ const seedRecipe = async () => {
   const buffer = await fs.readFile(seedPath);
   const recipes = JSON.parse(String(buffer));
 
-  recipes.forEach(async (recipe) => await Recipe.create(recipe));
+  return Promise.all(recipes.map(recipe => Recipe.create(recipe)));
 };
 
 const seedReview = async () => {
@@ -27,57 +27,66 @@ const seedReview = async () => {
   const buffer = await fs.readFile(seedPath);
   const reviews = JSON.parse(String(buffer));
 
-  reviews.forEach(async (review) => await Review.create(review));
+  return Promise.all(reviews.map(review => Review.create(review)));
 };
 
-const randNum = () => {
-  const recipiesLength = 16;
-  return Math.round(Math.random() * (recipiesLength - 1));
-};
+const randNum = (max) => Math.floor(Math.random() * max);
 
 const matchUserWithRecipes = async () => {
-  const userInstances = await User.findAll();
-  const recipeInstances = await Recipe.findAll();
-  userInstances.forEach(async (user) => {
-    let recipeIds = [];
-    for (let i = 0; i < randNum() + 1; i += 1) {
-      let recipeId = randNum();
-      do {
-        recipeId = randNum();
-      } while (recipeIds.includes(recipeId));
-      recipeIds.push(recipeId);
-      await user.addRecipe(recipeInstances[recipeId]);
+  const users = await User.findAll();
+  const recipes = await Recipe.findAll();
+  const recipeCount = recipes.length;
+
+  for (const user of users) {
+    const recipeIds = new Set();
+    const howMany = randNum(recipeCount) + 1;
+
+    while (recipeIds.size < howMany) {
+      recipeIds.add(randNum(recipeCount));
     }
-  });
+
+    for (const id of recipeIds) {
+      await user.addRecipe(recipes[id]);
+    }
+  }
 };
 
 const matchRecipesWithReviews = async () => {
-  const reviewInstances = await Review.findAll();
-  const recipeInstances = await Recipe.findAll();
-  recipeInstances.forEach(async (review) => {
-    let recipeIds = [];
-    for (let i = 0; i < randNum() + 1; i += 1) {
-      let recipeId = randNum();
-      do {
-        recipeId = randNum();
-      } while (recipeIds.includes(recipeId));
-      recipeIds.push(recipeId);
-      await review.addReview(reviewInstances[recipeId]);
+  const reviews = await Review.findAll();
+  const recipes = await Recipe.findAll();
+  const reviewCount = reviews.length;
+
+  for (const recipe of recipes) {
+    const reviewIds = new Set();
+    const howMany = randNum(reviewCount) + 1;
+
+    while (reviewIds.size < howMany) {
+      reviewIds.add(randNum(reviewCount));
     }
-  });
+
+    for (const id of reviewIds) {
+      await recipe.addReview(reviews[id]);
+    }
+  }
 };
 
 const generateData = async () => {
-  //Seed individual model data
+  try {
+    await db.sync({ force: true });
 
-  await db.sync({force: true})
-  await seedUser();
-  await seedRecipe();
-  await seedReview();
+    await seedUser();
+    await seedRecipe();
+    await seedReview();
 
-  // //Create relationships between individual model data
-  await matchUserWithRecipes();
-  await matchRecipesWithReviews();
+    await matchUserWithRecipes();
+    await matchRecipesWithReviews();
+
+    console.log("✅ Database seeding complete.");
+  } catch (err) {
+    console.error("❌ Error seeding database:", err);
+  } finally {
+    await db.close();
+  }
 };
 
 generateData();

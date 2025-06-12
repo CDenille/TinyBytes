@@ -6,11 +6,12 @@ class Review extends Model {}
 Review.init(
   {
     userName: DataTypes.STRING,
-    review: DataTypes.STRING,
+    review: DataTypes.TEXT,
     image: DataTypes.STRING
   },
   {
     sequelize: db,
+    modelName: 'Review',
     timestamps: false,
   }
 );

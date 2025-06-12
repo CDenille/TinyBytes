@@ -33,7 +33,7 @@ export class ReviewService {
 
   getReviews(recipeId: any): Observable<any> {
     return this.http
-      .get<any>(`https://tinybytes-production.up.railway.app/recipe/${recipeId}/reviews`)
+      .get<any>(`https://tinybytes.onrender.com/recipe/${recipeId}/reviews`)
       .pipe(catchError(this.HttpErrorHandler))
   }
 

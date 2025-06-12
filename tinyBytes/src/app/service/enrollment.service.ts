@@ -8,7 +8,7 @@ import { User } from "../user";
     providedIn: 'root'
 })
 export class EnrollmentService {
-    url = "https://tinybytes-production.up.railway.app/chefs/" //url to post to
+    url = "https://tinybytes.onrender.com/chefs/" //url to post to
     constructor(private _http: HttpClient) { }
 
     enrollUser(user: User): Observable<any> {

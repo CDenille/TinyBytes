@@ -17,6 +17,7 @@ Recipe.init(
   {
     sequelize: db,
     modelName: 'Recipe',
+    tableName: 'Recipes',
     timestamps: false,
   }
 );

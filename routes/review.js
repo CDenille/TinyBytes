@@ -37,18 +37,19 @@ const handleError = (error, req, res, next) => {
 }
 
 const findAllReviews = async (req, res, next) => {
-    const recipeId = req.params.recipeId;
-    const query = `SELECT Reviews.userName, Reviews.review, Reviews.image
-                    FROM Reviews
-                    JOIN Recipes on Recipes.recipeId = Reviews.recipe_id
-                    WHERE Reviews.recipe_id=(?);`
+    try {
+        const recipeId = req.params.recipeId;
+        const reviews = await Review.findAll({
+            where: { recipe_id: recipeId },
+            attributes: ['userName', 'review', 'image'],
+        });
 
-    db.all(query, [recipeId], (error, rows) => {
-        if (error) next(error)
-        req.data = rows;
-        next()
-    })
-}
+        req.data = reviews;
+        next();
+    } catch (error) {
+        next(error);
+    }
+};
 
 router.get('/:recipeId/reviews', findAllReviews, sendResponse)
 

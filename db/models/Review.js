@@ -7,7 +7,14 @@ Review.init(
   {
     userName: DataTypes.STRING,
     review: DataTypes.TEXT,
-    image: DataTypes.STRING
+    image: DataTypes.STRING,
+    recipe_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'Recipes',
+        key: 'recipeId',
+      }
+    }
   },
   {
     sequelize: db,

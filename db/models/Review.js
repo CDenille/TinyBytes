@@ -12,6 +12,7 @@ Review.init(
   {
     sequelize: db,
     modelName: 'Review',
+    tableName: 'Reviews',
     timestamps: false,
   }
 );
